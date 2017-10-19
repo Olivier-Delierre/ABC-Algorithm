@@ -1,6 +1,4 @@
-#include <iostream>
-
-using namespace std;
+#include "../include/MyAlgorithm.h"
 
 int main()
 {

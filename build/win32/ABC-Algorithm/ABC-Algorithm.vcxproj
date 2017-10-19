@@ -115,6 +115,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\main.cpp" />
+    <ClCompile Include="..\..\..\src\MyAlgorithm.cpp" />
+    <ClCompile Include="..\..\..\src\Problem.cpp" />
+    <ClCompile Include="..\..\..\src\SetUpParams.cpp" />
+    <ClCompile Include="..\..\..\src\Solution.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\MyAlgorithm.h" />
+    <ClInclude Include="..\..\..\include\Problem.h" />
+    <ClInclude Include="..\..\..\include\SetUpParams.h" />
+    <ClInclude Include="..\..\..\include\Solution.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
