@@ -16,7 +16,7 @@ private:
 	unsigned int   _solution_size;	        // size of each particle
 
 public:
-	SetUpParams();
+	SetUpParams(const unsigned int independent_runs, const unsigned int nb_evolution_steps, const unsigned int population_size, const unsigned int solution_size);
 
 	friend ostream& operator<< (ostream& os, const SetUpParams& setup);
 	friend istream& operator>> (istream& is, SetUpParams& setup);
