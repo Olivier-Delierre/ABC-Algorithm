@@ -8,8 +8,8 @@ using namespace std;
 class Problem
 {
 public:
-	Problem();
-	~Problem();
+	Problem(unsigned int dimension, double LLimit, double ULimit);
+	//~Problem();
 
 	friend ostream& operator<< (ostream& os, const Problem& pbm);
 	friend istream& operator>> (istream& is, Problem& pbm);
@@ -19,12 +19,12 @@ public:
 	bool operator!= (const Problem& pbm) const;
 
 	//Direction direction() const; //Maximize or Minimize
-	int dimension() const;
+	unsigned int dimension() const;
 	double LowerLimit, UpperLimit;
 
 private:
 
-	int _dimension;
+	unsigned int _dimension;
 };
 
 #endif

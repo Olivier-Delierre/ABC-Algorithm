@@ -30,7 +30,7 @@ public:
 	void population_size(const unsigned int val);
 	void solution_size(const unsigned int val);
 
-	~SetUpParams();
+	//~SetUpParams();
 };
 
 #endif
