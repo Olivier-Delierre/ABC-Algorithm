@@ -3,6 +3,7 @@
 
 #include <vector>
 
+#include "MyAlgorithm.h"
 #include "Problem.h"
 
 class Solution
