@@ -54,6 +54,3 @@ const unsigned int   SetUpParams::solution_size() const
 {
 	return _solution_size;
 }
-
-
-
