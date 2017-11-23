@@ -55,43 +55,5 @@ const unsigned int   SetUpParams::solution_size() const
 	return _solution_size;
 }
 
-/**
-	Set the number of independent runs
 
-	@param[in] val - value for the number of independent runs
-*/
-void SetUpParams::independent_runs(const unsigned int val)
-{
-	_independent_runs = val;
-}
-
-/**
-	Set the number of iterations per run
-
-	@param[in] val - value for the number of iteration per run
-*/
-void SetUpParams::nb_evolution_steps(const unsigned int val)
-{
-	_nb_evolution_steps = val;
-}
-
-/**
-	Set the number of solutions in the population
-
-	@param[in] val - value for the number of solutions in the population
-*/
-void SetUpParams::population_size(const unsigned int val)
-{
-	_population_size = val;
-}
-
-/**
-	Set the size of each particle
-
-	@param[in] val - value for the size of the particle
-*/
-void SetUpParams::solution_size(const unsigned int val)
-{
-	_solution_size = val;
-}
 

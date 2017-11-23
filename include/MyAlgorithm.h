@@ -8,7 +8,7 @@ class MyAlgorithm
 {
 private:
 	vector<Solution*> _solutions;     // individuals in population
-	vector<struct particle> _fitness_values;
+	vector <double> _fitness_values;
 	const SetUpParams& _setup;
 	unsigned int _upper_cost, _lower_cost; // lower and upper fitness of individuals in population
 
