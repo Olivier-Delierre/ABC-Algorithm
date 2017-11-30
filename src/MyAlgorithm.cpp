@@ -16,6 +16,6 @@ void MyAlgorithm::initialize()
 {
 	_solutions.resize(_setup.population_size());
 
-	for (int i = 0; i < _setup.population_size(); i++)
+	for (unsigned int i = 0; i < _setup.population_size(); i++)
 		_solutions[i] = new Solution{ pbm };
 }
