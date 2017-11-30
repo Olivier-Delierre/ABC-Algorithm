@@ -14,13 +14,7 @@ public:
 	Problem(unsigned int dimension, double LLimit, double ULimit);
 	//~Problem();
 
-	double f(const vector <Solution*> &Solution) const;
-	double Rosenbrock(const vector <Solution*> &Solution) const;
-	double Rastrigin(const vector <Solution*> &Solution) const;
-	double Ackley(const vector <Solution*> &Solution) const;
-	double Schwefel(const vector <Solution*> &Solution) const;
-	double Schaffer(const vector <Solution*> &Solution) const;
-	double Weierstrass(const vector <Solution*> &Solution) const;
+	
 
 	friend ostream& operator<< (ostream& os, const Problem& pbm);
 	friend istream& operator>> (istream& is, Problem& pbm);
@@ -29,7 +23,6 @@ public:
 	bool operator== (const Problem& pbm) const;
 	bool operator!= (const Problem& pbm) const;
 
-	//Direction direction() const; //Maximize or Minimize
 	unsigned int dimension() const;
 	double LowerLimit, UpperLimit;
 
