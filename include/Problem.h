@@ -29,7 +29,6 @@ public:
 	bool operator== (const Problem& pbm) const;
 	bool operator!= (const Problem& pbm) const;
 
-	//Direction direction() const; //Maximize or Minimize
 	unsigned int dimension() const;
 	double LowerLimit, UpperLimit;
 
