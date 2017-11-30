@@ -1,8 +1,9 @@
 #ifndef SOLUTION_H
 #define SOLUTION_H
 
-#include "Problem.h"
 #include <vector>
+#include <cmath>
+#include "Problem.h"
 
 class Solution
 {
