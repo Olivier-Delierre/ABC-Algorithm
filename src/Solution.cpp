@@ -27,3 +27,28 @@ void Solution::initialize()
 	for (int i = 0; i < _solution.size(); i++)
 		_solution[i] = _pbm.LowerLimit + (rand() % 1) * (_pbm.UpperLimit - _pbm.LowerLimit);
 }
+
+/**
+	Renvoie la meilleure fitness de la solution.
+*/
+double Solution::fitness() const
+{
+	return _current_fitness;
+}
+
+/**
+	Calcul la meilleure fitness d'une solution (une solution est un vector de double)
+*/
+double Solution::get_fitness()
+{
+	vector <double> fitness;
+	fitness.resize(_solution.size());
+	for (int i = 0; i < fitness.size(); i++)
+	{
+		double fx = f();
+		if (fx >= 0) //si f(x)>=0 avec x étant une solution
+		{
+			return 1 / (1 + fx);
+		}
+	}
+}
