@@ -1,7 +1,9 @@
 #ifndef PROBLEM_H
 #define PROBLEM_H
 
-#include <iostream>
+#include <vector>
+
+class Solution;
 
 using namespace std;
 
@@ -31,7 +33,7 @@ public:
 	double LowerLimit, UpperLimit;
 
 private:
-	enum benchmarks{ Rosenbrock, Rastrigin, Ackley, Schwefel, Schaffer, Weierstrass };
+	//enum benchmarks{ Rosenbrock, Rastrigin, Ackley, Schwefel, Schaffer, Weierstrass };
 	unsigned int _dimension;
 };
 

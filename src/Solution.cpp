@@ -6,7 +6,7 @@
 Solution::Solution(const Problem& pbm) :
 	_pbm{ pbm }
 { 
-	_solution.resize(_pbm.dimension);
+	_solution.resize(_pbm.dimension());
 	initialize(); 
 }
 
@@ -14,7 +14,7 @@ Solution::Solution(const Problem& pbm) :
 	Constructeur par recopie.
 */
 Solution::Solution(const Solution& sol) :
-	_solution{ sol._solution },
+	_solution( sol._solution ),
 	_pbm{ sol._pbm },
 	_current_fitness{ sol._current_fitness }
 {}

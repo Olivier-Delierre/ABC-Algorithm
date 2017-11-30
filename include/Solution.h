@@ -1,10 +1,8 @@
 #ifndef SOLUTION_H
 #define SOLUTION_H
 
-#include <vector>
-
-#include "MyAlgorithm.h"
 #include "Problem.h"
+#include <vector>
 
 class Solution
 {
@@ -13,9 +11,6 @@ public:
 	Solution(const Problem& pbm);
 	Solution(const Solution& sol);
 	~Solution();
-
-	friend ostream& operator<< (ostream& os, const Solution& sol);
-	friend istream& operator>> (istream& is, Solution& sol);
 
 	const Problem& pbm() const;
 
@@ -29,14 +24,14 @@ public:
 
 	unsigned int size() const;
 
-	vector<double>& solution();
+	std::vector<double>& solution() const;
 
 	double& position(const int index); //retournera une position du tableau _solution
 	void  position(const int index, const double value);
 
 
 private:
-	vector<double> _solution;
+	std::vector<double> _solution;
 	double _current_fitness;
 	const Problem& _pbm;
 };

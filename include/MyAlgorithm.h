@@ -1,6 +1,7 @@
 #ifndef MYALGORITHM_H
 #define MYALGORITHM_H
 
+#include "Problem.h"
 #include "Solution.h"
 #include "SetUpParams.h"
 
