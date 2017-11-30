@@ -5,3 +5,6 @@ Problem::Problem(unsigned int dimension, double LLimit, double ULimit) :
 	LowerLimit{ LLimit },
 	UpperLimit{ ULimit }
 {}
+
+unsigned int Problem::dimension() const
+{ return _dimension; }
