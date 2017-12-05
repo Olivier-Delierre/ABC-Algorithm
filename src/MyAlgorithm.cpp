@@ -28,6 +28,36 @@ MyAlgorithm::~MyAlgorithm()
 }
 
 /**
+Return the individuals in population
+
+@return _solutions - returns the individuals in population
+*/
+const vector<Solution*>& MyAlgorithm::solutions() const
+{
+	return _solutions;
+}
+
+/**
+Return the individual index in population
+
+@return _solutions[index] - returns the individual index in population
+*/
+Solution& MyAlgorithm::solution(const unsigned int index) const
+{
+	return *(_solutions[index]);
+}
+
+/**
+Return the fitness 
+
+@return _fitness_values[index] - returns the fitness
+*/
+double MyAlgorithm::fitness(const unsigned int index) const
+{
+	return _fitness_values[index];
+}
+
+/**
 Return the upper fitness of individuals in population
 
 @return _upper_cost - returns the upper fitness of individuals in population
