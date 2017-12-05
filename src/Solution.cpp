@@ -76,3 +76,27 @@ double Solution::f() const
 {
 	return 0;
 }
+
+double Solution::Rosenbrock()	const
+{
+	int sum = 0;
+	
+	for (unsigned int i = 0; i < _solution.size() - 1; i++)
+	{
+		sum += pow((1 - _solution[i]), 2) + 100 * pow((_solution[i + 1] - pow(_solution[i], 2)), 2);
+	}
+
+	return sum;
+}
+
+double Solution::Rastrigin() const
+{
+	int sum = 0;
+
+	for (unsigned int i = 0; i < _solution.size() - 1; i++)
+	{
+		sum += (10 * _solution.size()) + 1;
+	}
+
+	return sum;
+}
