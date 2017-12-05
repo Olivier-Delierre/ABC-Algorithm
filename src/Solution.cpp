@@ -79,9 +79,9 @@ double Solution::f() const
 
 double Solution::Rosenbrock()	const
 {
-	int sum = 0;
+	double sum{ 0 };
 	
-	for (unsigned int i = 0; i < _solution.size() - 1; i++)
+	for (unsigned int i = 0; i < _pbm.dimension() - 1; i++)
 	{
 		sum += pow((1 - _solution[i]), 2) + 100 * pow((_solution[i + 1] - pow(_solution[i], 2)), 2);
 	}
@@ -91,12 +91,47 @@ double Solution::Rosenbrock()	const
 
 double Solution::Rastrigin() const
 {
-	int sum = 0;
+	double sum{ 0 };
 
-	for (unsigned int i = 0; i < _solution.size() - 1; i++)
+	for (unsigned int i = 0; i < _pbm.dimension(); i++)
 	{
-		sum += (10 * _solution.size()) + 1;
+		sum += pow(_solution[i], 2) - 10 * cos(2 * M_PI * _solution[i]);
 	}
 
-	return sum;
+	return 10 * _pbm.dimension() + sum;
+}
+
+double Solution::Ackley() const
+{
+	double a{ 20.0 }, b{ 0.2 }, c{ 2 * M_PI };
+	
+	double sum1{ 0 };
+	double sum2{ 0 };
+
+	sum1 += pow(_solution[0], 2);
+	sum2 += cos(c * _solution[0]);
+
+	return -a * exp(-b * sqrt( (1 / _pbm.dimension()) * sum1) ) - exp( (1 / _pbm.dimension()) * sum2) + a + exp(1);
+}
+
+double Solution::Schwefel() const
+{
+	double sum{ 0 };
+
+	for (unsigned int i = 0; i < _pbm.dimension(); i++)
+	{
+		sum += _solution[i] * sin(sqrt(fabs(_solution[i])));
+	}
+
+	return 418.9829 * _pbm.dimension() - sum;
+}
+
+double Solution::Schaffer() const
+{
+	double f{ 0 };
+
+	f = 0.5 + (pow( sin( pow(_solution[0], 2) + pow(_solution[1], 2)), 2) - 0.5) / 
+				pow( 1 + 0.001 * ( pow(_solution[0], 2) + pow(_solution[1], 2) ), 2);
+
+	return f;
 }
