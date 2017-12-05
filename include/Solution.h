@@ -1,8 +1,11 @@
 #ifndef SOLUTION_H
 #define SOLUTION_H
 
+#define _USE_MATH_DEFINES
+
 #include <vector>
 #include <cmath>
+#include <climits>
 #include "Problem.h"
 
 class Solution

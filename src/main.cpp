@@ -9,5 +9,5 @@ int main()
 {
 	SetUpParams params{ INDEPENDANT_RUNS, NB_EVOLUTION_STEPS, POPULATION_SIZE, SOLUTION_SIZE };
 
-	cout << 0;
+	cout << "0" << std::endl;
 }

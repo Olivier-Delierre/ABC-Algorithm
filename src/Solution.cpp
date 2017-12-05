@@ -1,7 +1,5 @@
 #include "../include/Solution.h"
 
-#include <climits>
-
 /**
 	Constructeur de solution selon un problème.
 */
