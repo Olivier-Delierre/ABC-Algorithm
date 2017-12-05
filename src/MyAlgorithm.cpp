@@ -3,21 +3,16 @@
 MyAlgorithm::MyAlgorithm(const Problem& pbm, const SetUpParams& setup) :
 	_setup{ setup }
 {
-	initialize();
-}
-
-void MyAlgorithm::evaluate()
-{
-	for (int i = 0; i < _solutions.size(); i++)
-		_fitness_values[i] = _solutions[i]->fitness();
-}
-
-void MyAlgorithm::initialize()
-{
 	_solutions.resize(_setup.population_size());
 
 	for (unsigned int i = 0; i < _setup.population_size(); i++)
 		_solutions[i] = new Solution{ pbm };
+}
+
+void MyAlgorithm::evaluate()
+{
+	for (unsigned int i = 0; i < _solutions.size(); i++)
+		_fitness_values[i] = _solutions[i]->fitness();
 }
 
 /**
@@ -26,7 +21,7 @@ Destructor of MyAlgorithm
 */
 MyAlgorithm::~MyAlgorithm()
 {
-	for (int i = 0; i < _solutions.size(); i++)
+	for (unsigned int i = 0; i < _solutions.size(); i++)
 	{
 		delete _solutions[i];
 	}

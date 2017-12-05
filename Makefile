@@ -23,3 +23,6 @@ SetUpParams.o: $(SRC)SetUpParams.cpp $(INC)SetUpParams.h
 
 Solution.o: $(SRC)Solution.cpp $(INC)Solution.h
 	$(CXX) $(CXXFLAGS) -o Solution.o -c $(SRC)Solution.cpp
+
+clean:
+	@rm -f *.o

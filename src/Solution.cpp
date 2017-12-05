@@ -1,5 +1,7 @@
 #include "../include/Solution.h"
 
+#include <climits>
+
 /**
 	Constructeur de solution selon un problème.
 */
@@ -15,16 +17,23 @@ Solution::Solution(const Problem& pbm) :
 */
 Solution::Solution(const Solution& sol) :
 	_solution( sol._solution ),
-	_pbm{ sol._pbm },
-	_current_fitness{ sol._current_fitness }
+	_current_fitness{ sol._current_fitness },
+	_pbm{ sol._pbm }
 {}
+
+/**
+	Destructeur par défaut
+*/
+Solution::~Solution()
+{
+}
 
 /**
 	Initialisation de chaque sources.
 */
 void Solution::initialize()
 {
-	for (int i = 0; i < _solution.size(); i++)
+	for (unsigned int i = 0; i < _solution.size(); i++)
 		_solution[i] = _pbm.LowerLimit + (rand() % 1) * (_pbm.UpperLimit - _pbm.LowerLimit);
 }
 
@@ -44,7 +53,7 @@ double Solution::get_fitness()
 	//Calcul des fitness
 	vector <double> fitness;
 	fitness.resize(_solution.size());
-	for (int i = 0; i < fitness.size(); i++)
+	for (unsigned int i = 0; i < fitness.size(); i++)
 	{
 		double fx = f();
 		if (fx >= 0) //si f(x)>=0 avec x étant une solution
@@ -55,10 +64,15 @@ double Solution::get_fitness()
 
 	//Recherche de la meilleure fitness (la plus proche de zéro, comme toutes les valeurs sont positives il suffit de trouver le minimum)
 	double min = INT_MAX;
-	for (int i = 0; i < fitness.size(); i++)
+	for (unsigned int i = 0; i < fitness.size(); i++)
 	{
 		if (fitness[i] < min)
 			min = fitness[i];
 	}
 	return min;
+}
+
+double Solution::f() const
+{
+	return 0;
 }

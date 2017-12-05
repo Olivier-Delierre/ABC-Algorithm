@@ -27,7 +27,6 @@ public:
 	double LowerLimit, UpperLimit;
 
 private:
-	//enum benchmarks{ Rosenbrock, Rastrigin, Ackley, Schwefel, Schaffer, Weierstrass };
 	unsigned int _dimension;
 };
 
