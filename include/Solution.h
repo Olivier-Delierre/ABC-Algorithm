@@ -25,6 +25,7 @@ public:
 	void initialize();
 	double fitness() const;
 	double get_fitness();
+	Problem get_Problem() const;
 
 	unsigned int size() const;
 

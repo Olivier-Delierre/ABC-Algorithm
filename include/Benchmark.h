@@ -1,5 +1,8 @@
 #ifndef BENCHMARK_H
 #define BENCHMARK_H
+
+#define _USE_MATH_DEFINES
+
 #include "MyAlgorithm.h"
 
 double Rosenbrock(const Solution &solution);

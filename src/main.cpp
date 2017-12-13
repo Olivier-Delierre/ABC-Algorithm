@@ -37,7 +37,7 @@ int choixBenchmark()
 
 double fonction(int numBenchmark)
 {
-
+	return 0;
 }
 
 int main()
