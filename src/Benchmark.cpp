@@ -1,5 +1,26 @@
 #include "../include/Benchmark.h"
 
+double f(const Solution& solution, int num)
+{
+	switch (num)
+	{
+	case 1:
+		return Rosenbrock(solution);
+	case 2:
+		return Rastrigin(solution);
+	case 3:
+		return Ackley(solution);
+	case 4:
+		return Schwefel(solution);
+	case 5:
+		return Schaffer(solution);
+	case 6:
+		return Weierstrass(solution);
+	default:
+		return Rosenbrock(solution);
+	}
+}
+
 double Rosenbrock(const Solution &solution)	
 {
 	double sum{ 0 };
@@ -50,6 +71,11 @@ double Schwefel(const Solution &solution)
 }
 
 double Schaffer(const Solution &solution)
+{
+	return 0;
+}
+
+double Weierstrass(const Solution &solution)
 {
 	return 0;
 }

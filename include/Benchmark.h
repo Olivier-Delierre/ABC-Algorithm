@@ -5,6 +5,8 @@
 
 #include "MyAlgorithm.h"
 
+double f(const Solution& solution);
+
 double Rosenbrock(const Solution &solution);
 double Rastrigin(const Solution &solution);
 double Ackley(const Solution &solution);

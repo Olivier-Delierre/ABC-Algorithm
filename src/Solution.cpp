@@ -77,3 +77,5 @@ double Solution::get_fitness()
 	return min;
 }
 
+std::vector<double> Solution::solution() const
+{ return _solution; }

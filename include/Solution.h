@@ -29,7 +29,7 @@ public:
 
 	unsigned int size() const;
 
-	std::vector<double>& solution() const;
+	std::vector<double> solution() const;
 
 	double& position(const int index); //retournera une position du tableau _solution
 	void  position(const int index, const double value);

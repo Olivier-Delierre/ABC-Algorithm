@@ -6,8 +6,8 @@ INC=include/
 
 all: main
 
-main: main.o MyAlgorithm.o Problem.o SetUpParams.o Solution.o
-	$(CXX) $(CXXFLAGS) -o main main.o MyAlgorithm.o Problem.o SetUpParams.o Solution.o
+main: main.o MyAlgorithm.o Problem.o SetUpParams.o Solution.o Benchmark.o
+	$(CXX) $(CXXFLAGS) -o main main.o MyAlgorithm.o Problem.o SetUpParams.o Solution.o Benchmark.o
 
 main.o: $(SRC)main.cpp
 	$(CXX) $(CXXFLAGS) -o main.o -c $(SRC)main.cpp
