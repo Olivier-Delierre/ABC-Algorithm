@@ -21,7 +21,7 @@ public:
 	friend istream& operator>> (istream& is, MyAlgorithm& myAlgo);
 	MyAlgorithm& operator= (const MyAlgorithm& myAlgo);
 	const SetUpParams& setup() const;
-	void initialize();
+	double evolution();
 
 	// creates a array with fitness of all solutions in MyAlgorithm and its position in the MyAlgorithm
 	void evaluate();

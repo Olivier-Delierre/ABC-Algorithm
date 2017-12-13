@@ -33,16 +33,18 @@ int choixBenchmark()
 		std::cout << "6- WEIERSTRASS" << std::endl;
 	}
 	return choix;
+	fonction(choix);
 }
 
-double fonction(int numBenchmark)
-{
-	return 0;
-}
 
 int main()
 {
+	srand(time(0));
+	int numBenchmark = choixBenchmark();
+	Problem P{ SOLUTION_SIZE, numBenchmark };
 	SetUpParams params{ INDEPENDANT_RUNS, NB_EVOLUTION_STEPS, POPULATION_SIZE, SOLUTION_SIZE };
-
+	MyAlgorithm ABC{ P, params };
+	ABC.evolution();
+	system("pause");
 	cout << "0" << std::endl;
 }
