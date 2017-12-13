@@ -114,6 +114,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\Benchmark.cpp" />
     <ClCompile Include="..\..\..\src\main.cpp" />
     <ClCompile Include="..\..\..\src\MyAlgorithm.cpp" />
     <ClCompile Include="..\..\..\src\Problem.cpp" />
@@ -121,6 +122,7 @@
     <ClCompile Include="..\..\..\src\Solution.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\include\Benchmark.h" />
     <ClInclude Include="..\..\..\include\MyAlgorithm.h" />
     <ClInclude Include="..\..\..\include\Problem.h" />
     <ClInclude Include="..\..\..\include\SetUpParams.h" />

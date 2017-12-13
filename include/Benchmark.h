@@ -1,12 +1,13 @@
 #ifndef BENCHMARK_H
 #define BENCHMARK_H
+#include "MyAlgorithm.h"
 
-double Rosenbrock()		const;
-double Rastrigin()		const;
-double Ackley()			const;
-double Schwefel()		const;
-double Schaffer()		const;
-double Weierstrass()	const;
+double Rosenbrock()		;
+double Rastrigin()		;
+double Ackley()			;
+double Schwefel()		;
+double Schaffer()		;
+double Weierstrass()	;
 
 
 #endif

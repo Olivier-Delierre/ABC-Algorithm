@@ -1,18 +1,18 @@
 #include "../include/Benchmark.h"
 
-double Benchmark::Rosenbrock()	const
+double Rosenbrock(const Solution &solution)	
 {
 	double sum{ 0 };
 	
-	for (unsigned int i = 0; i < _pbm.dimension() - 1; i++)
+	for (unsigned int i = 0; i < solution._pbm.dimension() - 1; i++)
 	{
-		sum += pow((1 - _solution[i]), 2) + 100 * pow((_solution[i + 1] - pow(_solution[i], 2)), 2);
+		sum += pow((1 - solution[i]), 2) + 100 * pow((solution[i + 1] - pow(solution[i], 2)), 2);
 	}
 
 	return sum;
 }
 
-double Benchmark::Rastrigin() const
+double Rastrigin() 
 {
 	double sum{ 0 };
 
@@ -24,7 +24,7 @@ double Benchmark::Rastrigin() const
 	return 10 * _pbm.dimension() + sum;
 }
 
-double Benchmark::Ackley() const
+double Ackley() 
 {
 	double a{ 20.0 }, b{ 0.2 }, c{ 2 * M_PI };
 	
@@ -37,7 +37,7 @@ double Benchmark::Ackley() const
 	return -a * exp(-b * sqrt( (1 / _pbm.dimension()) * sum1) ) - exp( (1 / _pbm.dimension()) * sum2) + a + exp(1);
 }
 
-double Benchmark::Schwefel() const
+double Schwefel() 
 {
 	double sum{ 0 };
 
@@ -49,4 +49,4 @@ double Benchmark::Schwefel() const
 	return 418.9829 * _pbm.dimension() - sum;
 }
 
-double Benchmark::Schaffer() const
+double Schaffer() 
