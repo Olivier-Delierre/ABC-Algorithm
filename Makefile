@@ -24,5 +24,8 @@ SetUpParams.o: $(SRC)SetUpParams.cpp $(INC)SetUpParams.h
 Solution.o: $(SRC)Solution.cpp $(INC)Solution.h
 	$(CXX) $(CXXFLAGS) -o Solution.o -c $(SRC)Solution.cpp
 
+Benchmark.o: $(SRC)Benchmark.cpp $(INC)Benchmark.h
+	$(CXX) $(CXXFLAGS) -o Benchmark.o -c $(SRC)Benchmark.cpp
+
 clean:
 	@rm -f *.o

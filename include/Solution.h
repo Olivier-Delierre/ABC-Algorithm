@@ -16,14 +16,6 @@ public:
 	Solution(const Solution& sol);
 	~Solution();
 
-	double f() const;
-	double Rosenbrock() const;
-	double Rastrigin() const;
-	double Ackley() const;
-	double Schwefel() const;
-	double Schaffer() const;
-	double Weierstrass() const;
-
 	const Problem& pbm() const;
 
 	Solution& operator=  (const Solution& sol);
