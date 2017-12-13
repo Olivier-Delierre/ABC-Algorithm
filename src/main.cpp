@@ -1,11 +1,15 @@
 #include "../include/MyAlgorithm.h"
+#include "../include/Benchmark.h"
 
 #define INDEPENDANT_RUNS 2000000
 #define NB_EVOLUTION_STEPS 30
 #define POPULATION_SIZE 30
 #define SOLUTION_SIZE 30
 
-void choixBenchmark()
+/**
+	Return le choix du benchmark
+*/
+int choixBenchmark()
 {
 	std::cout << "Choisissez le benchmark: (entrez un entier)" << std::endl;
 	std::cout << "1- ROSENBROCK" << std::endl;
@@ -28,6 +32,12 @@ void choixBenchmark()
 		std::cout << "5- SCHAFFER" << std::endl;
 		std::cout << "6- WEIERSTRASS" << std::endl;
 	}
+	return choix;
+}
+
+double fonction(int numBenchmark)
+{
+
 }
 
 int main()

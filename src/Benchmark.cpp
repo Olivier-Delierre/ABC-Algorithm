@@ -12,7 +12,7 @@ double Rosenbrock(const Solution &solution)
 	return sum;
 }
 
-double Rastrigin() 
+double Rastrigin(const Solution &solution)
 {
 	double sum{ 0 };
 
@@ -24,7 +24,7 @@ double Rastrigin()
 	return 10 * _pbm.dimension() + sum;
 }
 
-double Ackley() 
+double Ackley(const Solution &solution)
 {
 	double a{ 20.0 }, b{ 0.2 }, c{ 2 * M_PI };
 	
@@ -37,7 +37,7 @@ double Ackley()
 	return -a * exp(-b * sqrt( (1 / _pbm.dimension()) * sum1) ) - exp( (1 / _pbm.dimension()) * sum2) + a + exp(1);
 }
 
-double Schwefel() 
+double Schwefel(const Solution &solution)
 {
 	double sum{ 0 };
 
@@ -49,4 +49,4 @@ double Schwefel()
 	return 418.9829 * _pbm.dimension() - sum;
 }
 
-double Schaffer() 
+double Schaffer(const Solution &solution)
