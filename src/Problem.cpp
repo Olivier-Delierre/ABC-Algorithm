@@ -1,6 +1,6 @@
 #include "../include/Problem.h"
 
-Problem::Problem(unsigned int dimension, int numBenchmark) : _dimension{ dimension , _numBenchmark{numBenchmark}
+Problem::Problem(unsigned int dimension, int numBenchmark) : _dimension{ dimension }, _numBenchmark{ numBenchmark }
 {
 	switch (numBenchmark)
 	{

@@ -10,7 +10,7 @@ MyAlgorithm::MyAlgorithm(const Problem& pbm, const SetUpParams& setup) : _setup{
 
 double MyAlgorithm::evolution()
 {
-	
+	return 0;
 }
 
 void MyAlgorithm::evaluate()
