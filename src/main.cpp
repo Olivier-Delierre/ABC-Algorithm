@@ -33,7 +33,6 @@ int choixBenchmark()
 		std::cout << "6- WEIERSTRASS" << std::endl;
 	}
 	return choix;
-	fonction(choix);
 }
 
 
