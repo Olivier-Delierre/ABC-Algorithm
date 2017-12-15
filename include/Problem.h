@@ -11,7 +11,7 @@ using namespace std;
 class Problem
 {
 public:
-	Problem(unsigned int dimension, double LLimit, double ULimit);
+	Problem(unsigned int dimension, int numBenchmark);
 	//~Problem();
 
 	
@@ -28,6 +28,7 @@ public:
 
 private:
 	unsigned int _dimension;
+	int _numBenchmark;
 };
 
 #endif
