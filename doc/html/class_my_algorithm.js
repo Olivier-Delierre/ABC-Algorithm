@@ -1,0 +1,27 @@
+var class_my_algorithm =
+[
+    [ "MyAlgorithm", "class_my_algorithm.html#aa7ee1c449fa4a7084708e1e99225058e", null ],
+    [ "~MyAlgorithm", "class_my_algorithm.html#a7ba90ce309c17db02d6d277315d6db77", null ],
+    [ "best_cost", "class_my_algorithm.html#ad72432c2426378bbc70b561ed46b28e1", null ],
+    [ "best_solution", "class_my_algorithm.html#a0c87764dcd9085aa53ea5eefed0ea25d", null ],
+    [ "calculateProbabilities", "class_my_algorithm.html#aa14015027c92fc70281f9ecba4814ccf", null ],
+    [ "evaluate", "class_my_algorithm.html#a2fd3ab71632eea232e8839255573375b", null ],
+    [ "evolution", "class_my_algorithm.html#aad3249d0501fca1e07843012c66044b5", null ],
+    [ "evolution", "class_my_algorithm.html#af1245db65d9631fcf81c22ce486402d5", null ],
+    [ "fitness", "class_my_algorithm.html#a24450f9389ffbd53687889c04066444e", null ],
+    [ "fitness", "class_my_algorithm.html#a9213394ef13e62ce57bb78fb3ed64ed1", null ],
+    [ "initialize", "class_my_algorithm.html#aae992920a3b35744b3412cb7cc6b4b18", null ],
+    [ "lower_cost", "class_my_algorithm.html#ac03cdef6252a03dd09d4ee6b351840c6", null ],
+    [ "operator=", "class_my_algorithm.html#a92e6bca6da9d5e9a63268441dc7d5b16", null ],
+    [ "sendEmployedBees", "class_my_algorithm.html#a6019277af6bcb526edb7193f4eab92a6", null ],
+    [ "sendOnLookerBees", "class_my_algorithm.html#acd6a23300eb020fb39b5eab0e1dd9841", null ],
+    [ "sendScoutBees", "class_my_algorithm.html#a3def56f42486932ca182ab475aadb041", null ],
+    [ "setup", "class_my_algorithm.html#a07d5a3a43be29de9b10bf6231cceb3f0", null ],
+    [ "solution", "class_my_algorithm.html#a8c9accd06fad6a115149ec922445feea", null ],
+    [ "solutions", "class_my_algorithm.html#abb5ff337af9ac81b6e3b3e67b49bc6ab", null ],
+    [ "upper_cost", "class_my_algorithm.html#a3db720c7dc6c779683c9af8ff87d0c09", null ],
+    [ "worst_cost", "class_my_algorithm.html#a3c4a531f64422555afd0a548d01f1123", null ],
+    [ "worst_solution", "class_my_algorithm.html#a328e5ff681d4c3d067668bb202a1c107", null ],
+    [ "operator<<", "class_my_algorithm.html#a2fc59e69098f8508c27591e84943481d", null ],
+    [ "operator>>", "class_my_algorithm.html#a3fb012fd1a0301c09e316005ab469695", null ]
+];
