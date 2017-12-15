@@ -14,6 +14,8 @@ private:
 	unsigned int _upper_cost, _lower_cost; // lower and upper fitness of individuals in population
 	vector<double> _probabilities;
 
+	vector<unsigned int> _trial; 
+
 public:
 	MyAlgorithm(const Problem& pbm, const SetUpParams& setup);
 	~MyAlgorithm();
@@ -22,6 +24,9 @@ public:
 	friend istream& operator>> (istream& is, MyAlgorithm& myAlgo);
 	MyAlgorithm& operator= (const MyAlgorithm& myAlgo);
 	const SetUpParams& setup() const;
+	
+	
+	void sendEmployedBees();
 	double evolution();
 
 	// creates a array with fitness of all solutions in MyAlgorithm and its position in the MyAlgorithm

@@ -8,6 +8,41 @@ MyAlgorithm::MyAlgorithm(const Problem& pbm, const SetUpParams& setup) : _setup{
 		_solutions[i] = new Solution{ pbm };
 }
 
+
+/**
+ * Function which send the employed bees of the Algorithm. It consist of generating for each
+ * solutions of the Algorithm, a random parameter which represents a dimension number.
+ *
+ * This algorithm calculate a new value for this precise food.
+ */ 
+void MyAlgorithm::sendEmployedBees()
+{
+	for (unsigned int i = 0; i < _setup.population_size(); i++)
+	{
+		// Calculation of a random parameter between 0 and the dimension size -1
+		int randomParameter = rand()%_setup.population_size();
+		// Calculation of a random food between 0 and the size of the solution -1
+		int randomFood = rand()%_setup.solution_size();
+
+		double newValue = 
+				_solutions[i]->solution()[randomParameter] 
+				+ (rand()%1) 
+				* (_solutions[i]->solution()[randomParameter] - _solutions[randomFood]->solution()[randomParameter]);
+	
+		// If we get a better solution than previous, we set it, and the number of trial return to 0
+		if (newValue > _solutions[i]->solution()[randomParameter]) 
+		{
+			_solutions[i]->solution()[randomParameter]; 
+			_trial[i] = 0;
+		}
+		// Else, we incremente the number of trial
+		else
+		{
+			_trial[i]++;
+		}
+	}
+}
+
 double MyAlgorithm::evolution()
 {
 	return 0;	
