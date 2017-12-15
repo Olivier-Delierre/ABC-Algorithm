@@ -17,6 +17,7 @@ public:
 	MyAlgorithm(const Problem& pbm, const SetUpParams& setup);
 	~MyAlgorithm();
 
+	void initialize();
 	friend ostream& operator<< (ostream& os, const MyAlgorithm& myAlgo);
 	friend istream& operator>> (istream& is, MyAlgorithm& myAlgo);
 	MyAlgorithm& operator= (const MyAlgorithm& myAlgo);

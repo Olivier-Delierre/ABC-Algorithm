@@ -1,16 +1,37 @@
 #include "../include/MyAlgorithm.h"
 
-MyAlgorithm::MyAlgorithm(const Problem& pbm, const SetUpParams& setup) : _setup{ setup }
+MyAlgorithm::MyAlgorithm(const Problem& pbm, const SetUpParams& setup) : _solutions{}, _trial{}, _fitness_values{}, _setup{ setup }
 {
 	_solutions.resize(_setup.population_size());
-
-	for (unsigned int i = 0; i < _setup.population_size(); i++)
+	_fitness_values.resize(_setup.population_size());
+	for (int i = 0; i<d_setup.population_size(); ++i)
+	{
 		_solutions[i] = new Solution{ pbm };
+		_fitnessValues[i] = _solutions[i]->fitness();
+	};
+}
+
+void MyAlgorithm::initialize()
+{
+	for (int i = 0; i<_solutions.size(); ++i)
+	{
+		_solutions[i]->initialize();
+		_fitness_values[i] = _solutions[i]->fitness();
+	}
 }
 
 double MyAlgorithm::evolution()
 {
-	return 0;	
+	for (int i = 0; i < INDEPENDANT_RUNS; i++)
+	{
+		initialize();
+		for (int i = 0; i < NB_EVOLUTION_STEPS; i++)
+		{
+			sendEmployeedBees();
+			sendOnLookerBees();
+			sendScoutBees();
+		}
+	}
 }
 
 void MyAlgorithm::evaluate()
