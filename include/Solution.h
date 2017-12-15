@@ -10,35 +10,89 @@
 
 class Solution
 {
-	//contient la déclaration d'une solution
 public:
-	Solution(const Problem& pbm);
-	Solution(const Solution& sol);
+	/**
+ 	 * Constructor with a problem.
+ 	 *
+ 	 * \param[in] problem A Problem.
+	 */
+	Solution(const Problem& problem);
+
+	/**
+ 	 * Copy constructor.
+	 *
+	 * \param solution A solution.
+	 */
+	Solution(const Solution& solution);
+	
+	/// Default destructor
 	~Solution();
-
-	const Problem& pbm() const;
-
-	Solution& operator=  (const Solution& sol);
-	bool operator== (const Solution& sol) const;
-	bool operator!= (const Solution& sol) const;
-
-	void initialize();
-	double fitness() const;
-	double calculate_fitness();
+	
+	/**
+	 * Returns the values of the solution.
+	 *
+	 * \returns the values of the solution.
+	 */
+	std::vector<double> solution() const;
+	
+	/**
+	 * Returns the fitness of the solution.
+	 *
+	 * \returns the fitness of the solution.
+	 */
+	double current_fitness() const;
+	
+	/**
+	 * Returns the problem of the solution.
+	 *
+	 * \returns the problem of the solution.
+	 */
 	Problem problem() const;
 
-	unsigned int size() const;
+	/**
+	 * Overload of the copy operator.
+	 *
+	 * \returns the solution which sustains the copy.
+	 */
+	Solution& operator=  (const Solution& sol);
 
-	std::vector<double> solution() const;
+	/**
+	 * Overload of the "equal to" operator.
+	 *
+	 * \returns true if the two solutions are the same. Else, returns false.
+	 */
+	bool operator== (const Solution& sol) const;
 
-	double& position(const int index); //retournera une position du tableau _solution
-	void  position(const int index, const double value);
+	/**
+	 * Overload of the "different to" operator.
+	 *
+	 * \returns true if the two solutions are different. Else, returns false.
+	 */
+	bool operator!= (const Solution& sol) const;
 
+	/**
+	 * Initialize the solution.
+	 *
+	 * It consist of generating each value of different dimensions with
+	 * a mathematic function.
+	 */
+	void initialize();
 
+	/**
+	 * Calculate the best fitness of the solution.
+	 *
+	 * Using the function contained in the choosen benchmark, this function
+	 * calculates the result of each values in the solution, and finally uses
+	 * a little mathematic function in order to keep unsigned integers.
+	 */
+	void calculate_fitness();
 private:
+	/// A vector containing the different values of the solution.
 	std::vector<double> _solution;
+	/// The best fitness of the given solution.
 	double _current_fitness;
-	const Problem& _pbm;
+	/// The problem solved by the solution.
+	const Problem& _problem;
 };
 
 #endif

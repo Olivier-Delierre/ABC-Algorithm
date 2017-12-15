@@ -15,7 +15,6 @@ private:
 	vector<double> _probabilities; // probabilities of food sources to be chosen
 
 	vector<unsigned int> _trial; 
-
 public:
 	MyAlgorithm(const Problem& pbm, const SetUpParams& setup);
 	~MyAlgorithm();

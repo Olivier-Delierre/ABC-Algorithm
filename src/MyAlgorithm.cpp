@@ -2,23 +2,29 @@
 #include "../include/MyAlgorithm.h"
 
 
-MyAlgorithm::MyAlgorithm(const Problem& pbm, const SetUpParams& setup) : _solutions{}, _trial{}, _fitness_values{}, _setup{ setup }
+MyAlgorithm::MyAlgorithm(const Problem& pbm, const SetUpParams& setup) : 
+	_solutions{}, 
+	_fitness_values{}, 
+	_setup{ setup },
+	_probabilities{},
+	_trial{}
 {
 	_solutions.resize(_setup.population_size());
 	_fitness_values.resize(_setup.population_size());
-	for (int i = 0; i<_setup.population_size(); ++i)
+	_trial.resize(_setup.population_size());
+	for (unsigned int i = 0; i < _setup.population_size(); i++)
 	{
 		_solutions[i] = new Solution{ pbm };
-		_fitness_values[i] = _solutions[i]->fitness();
+		_fitness_values[i] = _solutions[i]->current_fitness();
 	};
 }
 
 void MyAlgorithm::initialize()
 {
-	for (int i = 0; i<_solutions.size(); ++i)
+	for (unsigned int i = 0; i<_solutions.size(); i++)
 	{
 		_solutions[i]->initialize();
-		_fitness_values[i] = _solutions[i]->fitness();
+		_fitness_values[i] = _solutions[i]->current_fitness();
 	}
 }
 
@@ -57,6 +63,9 @@ void MyAlgorithm::sendEmployedBees()
 	}
 }
 
+void MyAlgorithm::sendOnLookerBees()
+{}
+
 /**
  * Function which send the scout bees of the Algorithm. It consist 
  * on checking if the maximum of trial has been reached.
@@ -72,7 +81,7 @@ void MyAlgorithm::sendScoutBees()
 		if (_trial[i] > _setup.max_trial())
 		{
 			// Reinitialization of the solution
-			_solutions[i].initialize();
+			_solutions[i]->initialize();
 		}
 	}
 }
@@ -96,7 +105,7 @@ double MyAlgorithm::evolution()
 void MyAlgorithm::evaluate()
 {
 	for (unsigned int i = 0; i < _solutions.size(); i++)
-		_fitness_values[i] = _solutions[i]->fitness();
+		_fitness_values[i] = _solutions[i]->current_fitness();
 }
 
 /**
@@ -136,7 +145,12 @@ double MyAlgorithm::fitness(const int index) const
 int MyAlgorithm::upper_cost() const
 {
 	double max = 0;
-	for (int i = 1; i < _setup.population_size(); i++) if (_fitness_values[i] > _fitness_values[max]) max = i;
+
+	for (unsigned int i = 1; i < _setup.population_size(); i++) 
+	{
+		if (_fitness_values[i] > _fitness_values[max]) max = i;
+	}
+
 	return max;
 }
 
@@ -146,7 +160,12 @@ Return lower fitness' index
 int MyAlgorithm::lower_cost() const
 {
 	double min = 0;
-	for (int i = 1; i < _setup.population_size(); i++) if (_fitness_values[i] < _fitness_values[min]) min = i;
+	
+	for (unsigned int i = 1; i < _setup.population_size(); i++) 
+	{
+		if (_fitness_values[i] < _fitness_values[min]) min = i;
+	}
+
 	return min;
 }
 
@@ -187,4 +206,18 @@ double MyAlgorithm::fitness(const unsigned int index) const
 	return _fitness_values[index];
 }
 
+void MyAlgorithm::calculateProbabilities()
+{
+	_probabilities.resize(_setup.solution_size());
+	double sumfit = 0;
+ 
+	for (unsigned int i = 0; i < _setup.solution_size(); i++)
+	{
+			sumfit += _fitness_values[i];
+	}
 
+	for (unsigned int i = 0; i < _setup.solution_size(); i++)
+	{
+		_probabilities[i] = _fitness_values[i] / sumfit;
+	}
+}
