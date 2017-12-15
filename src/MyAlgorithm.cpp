@@ -116,7 +116,17 @@ unsigned int MyAlgorithm::lower_cost() const
 	return _lower_cost;
 }
 
-void MyAlgorithm::calculateProbabilities(vector<double>& _probabilities)
+void MyAlgorithm::calculateProbabilities()
 {
+	_probabilities.resize(_setup.solution_size());
+	double sumfit = 0;
 
+	for (int i = 0; i < _setup.solution_size(); i++)
+	{
+			sumfit += _fitness_values[i];
+	}
+	for (int i = 0; i < _setup.solution_size(); i++)
+	{
+		_probabilities[i] = _fitness_values[i] / sumfit;
+	}
 }

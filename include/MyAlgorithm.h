@@ -12,7 +12,7 @@ private:
 	vector <double> _fitness_values;
 	const SetUpParams& _setup;
 	unsigned int _upper_cost, _lower_cost; // lower and upper fitness of individuals in population
-	vector<double> _probabilities;
+	vector<double> _probabilities; // probabilities of food sources to be chosen
 
 	vector<unsigned int> _trial; 
 
@@ -45,7 +45,7 @@ public:
 	Solution& worst_solution() const;
 
 	void evolution(int iter); /*makes an evolution step*/
-	void calculateProbabilities(vector<double>& _probabilities);
+	void calculateProbabilities();
 	void sendOnlookerBees();
 
 };
