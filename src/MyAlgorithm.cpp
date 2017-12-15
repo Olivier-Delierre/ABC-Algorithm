@@ -80,3 +80,8 @@ unsigned int MyAlgorithm::lower_cost() const
 {
 	return _lower_cost;
 }
+
+void MyAlgorithm::calculateProbabilities(vector<double>& _probabilities)
+{
+
+}

@@ -12,6 +12,7 @@ private:
 	vector <double> _fitness_values;
 	const SetUpParams& _setup;
 	unsigned int _upper_cost, _lower_cost; // lower and upper fitness of individuals in population
+	vector<double> _probabilities;
 
 public:
 	MyAlgorithm(const Problem& pbm, const SetUpParams& setup);
@@ -39,6 +40,8 @@ public:
 	Solution& worst_solution() const;
 
 	void evolution(int iter); /*makes an evolution step*/
+	void calculateProbabilities(vector<double>& _probabilities);
+	void sendOnlookerBees();
 
 };
 
