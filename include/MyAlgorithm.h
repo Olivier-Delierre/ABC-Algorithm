@@ -27,14 +27,17 @@ public:
 	
 	
 	void sendEmployedBees();
+	void sendOnLookerBees();
+	void sendScoutBees();
 	double evolution();
 
 	// creates a array with fitness of all solutions in MyAlgorithm and its position in the MyAlgorithm
 	void evaluate();
 
 	const vector<Solution*>& solutions() const;
-	unsigned int upper_cost() const;
-	unsigned int lower_cost() const;
+	double fitness(const int index) const;
+	int upper_cost() const;
+	int lower_cost() const;
 	Solution& solution(const unsigned int index) const;
 	double fitness(const unsigned int index) const;
 

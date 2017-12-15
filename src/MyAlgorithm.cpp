@@ -1,13 +1,15 @@
+#include <iomanip>
 #include "../include/MyAlgorithm.h"
+
 
 MyAlgorithm::MyAlgorithm(const Problem& pbm, const SetUpParams& setup) : _solutions{}, _trial{}, _fitness_values{}, _setup{ setup }
 {
 	_solutions.resize(_setup.population_size());
 	_fitness_values.resize(_setup.population_size());
-	for (int i = 0; i<d_setup.population_size(); ++i)
+	for (int i = 0; i<_setup.population_size(); ++i)
 	{
 		_solutions[i] = new Solution{ pbm };
-		_fitnessValues[i] = _solutions[i]->fitness();
+		_fitness_values[i] = _solutions[i]->fitness();
 	};
 }
 
@@ -57,16 +59,18 @@ void MyAlgorithm::sendEmployedBees()
 
 double MyAlgorithm::evolution()
 {
-	for (int i = 0; i < INDEPENDANT_RUNS; i++)
+	for (unsigned int i = 0; i < _setup.independent_runs(); i++)
 	{
 		initialize();
-		for (int i = 0; i < NB_EVOLUTION_STEPS; i++)
+		for (unsigned int j = 0; j < _setup.nb_evolution_steps(); j++)
 		{
-			sendEmployeedBees();
+			sendEmployedBees();
 			sendOnLookerBees();
 			sendScoutBees();
+			cout << "Run " << setw(3) << i + 1 << " evolution " << setw(6) << j + 1 << " : " << setw(10) << best_cost() << std::endl;
 		}
 	}
+	return 0;
 }
 
 void MyAlgorithm::evaluate()
@@ -98,6 +102,52 @@ const vector<Solution*>& MyAlgorithm::solutions() const
 }
 
 /**
+	Return the fitness number index
+*/
+double MyAlgorithm::fitness(const int index) const
+{ 
+	return _fitness_values[index];
+}
+
+
+/*
+	Return best fitness' index
+*/
+int MyAlgorithm::upper_cost() const
+{
+	double max = 0;
+	for (int i = 1; i < _setup.population_size(); i++) if (_fitness_values[i] > _fitness_values[max]) max = i;
+	return max;
+}
+
+/*
+Return lower fitness' index
+*/
+int MyAlgorithm::lower_cost() const
+{
+	double min = 0;
+	for (int i = 1; i < _setup.population_size(); i++) if (_fitness_values[i] < _fitness_values[min]) min = i;
+	return min;
+}
+
+/*
+	Return best fitness
+*/
+double MyAlgorithm::best_cost()  const
+{
+	return fitness(lower_cost()); 
+}
+
+
+/*
+	Return worst fitness
+ */
+double MyAlgorithm::worst_cost() const 
+{
+	return fitness(upper_cost()); 
+}
+
+/**
 Return the individual index in population
 
 @return _solutions[index] - returns the individual index in population
@@ -117,22 +167,4 @@ double MyAlgorithm::fitness(const unsigned int index) const
 	return _fitness_values[index];
 }
 
-/**
-Return the upper fitness of individuals in population
 
-@return _upper_cost - returns the upper fitness of individuals in population
-*/
-unsigned int MyAlgorithm::upper_cost() const
-{
-	return _upper_cost;
-}
-
-/**
-Return the lower fitness of individuals in population
-
-@return _lower_cost - returns the lower fitness of individuals in population
-*/
-unsigned int MyAlgorithm::lower_cost() const
-{
-	return _lower_cost;
-}
