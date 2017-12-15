@@ -39,7 +39,6 @@ int choixBenchmark()
 	return choix;
 }
 
-
 int main()
 {
 	srand(time(0));
