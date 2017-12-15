@@ -46,14 +46,14 @@ double Solution::fitness() const
 /**
 	Getter qui retourne le problème 
 */
-Problem Solution::get_Problem() const
+Problem Solution::problem() const
 {
 	return _pbm;
 }
 /**
 	Calcul et renvoie la meilleure fitness d'une solution (une solution est un vector de double)
 */
-double Solution::get_fitness()
+double Solution::calculate_fitness()
 {
 	//Calcul des fitness
 	vector <double> fitness;

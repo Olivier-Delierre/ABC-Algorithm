@@ -25,7 +25,7 @@ double Rosenbrock(const Solution &solution)
 {
 	double sum{ 0 };
 	
-	for (unsigned int i = 0; i < solution.get_Problem().dimension() - 1; i++)
+	for (unsigned int i = 0; i < solution.problem().dimension() - 1; i++)
 	{
 		sum += pow((1 - solution.solution()[i]), 2) + 100 * pow((solution.solution()[i + 1] - pow(solution.solution()[i], 2)), 2);
 	}
@@ -37,12 +37,12 @@ double Rastrigin(const Solution &solution)
 {
 	double sum{ 0 };
 
-	for (unsigned int i = 0; i < solution.get_Problem().dimension(); i++)
+	for (unsigned int i = 0; i < solution.problem().dimension(); i++)
 	{
 		sum += pow(solution.solution()[i], 2) - 10 * cos(2 * M_PI * solution.solution()[i]);
 	}
 
-	return 10 * solution.get_Problem().dimension() + sum;
+	return 10 * solution.problem().dimension() + sum;
 }
 
 double Ackley(const Solution &solution)
@@ -55,19 +55,19 @@ double Ackley(const Solution &solution)
 	sum1 += pow(solution.solution()[0], 2);
 	sum2 += cos(c * solution.solution()[0]);
 
-	return -a * exp(-b * sqrt((1 / solution.get_Problem().dimension()) * sum1)) - exp((1 / solution.get_Problem().dimension()) * sum2) + a + exp(1);
+	return -a * exp(-b * sqrt((1 / solution.problem().dimension()) * sum1)) - exp((1 / solution.problem().dimension()) * sum2) + a + exp(1);
 }
 
 double Schwefel(const Solution &solution)
 {
 	double sum{ 0 };
 
-	for (unsigned int i = 0; i < solution.get_Problem().dimension(); i++)
+	for (unsigned int i = 0; i < solution.problem().dimension(); i++)
 	{
 		sum += solution.solution()[i] * sin(sqrt(fabs(solution.solution()[i])));
 	}
 
-	return 418.9829 * solution.get_Problem().dimension() - sum;
+	return 418.9829 * solution.problem().dimension() - sum;
 }
 
 double Schaffer(const Solution &solution)
