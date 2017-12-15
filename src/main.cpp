@@ -1,3 +1,5 @@
+#include <ctime>
+
 #include "../include/MyAlgorithm.h"
 #include "../include/Benchmark.h"
 
