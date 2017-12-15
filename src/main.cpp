@@ -8,31 +8,33 @@
 #define POPULATION_SIZE 30
 #define SOLUTION_SIZE 30
 
+using namespace std;
+
 /**
 	Return le choix du benchmark
 */
 int choixBenchmark()
 {
-	std::cout << "Choisissez le benchmark: (entrez un entier)" << std::endl;
-	std::cout << "1- ROSENBROCK" << std::endl;
-	std::cout << "2- RASTRIGIN" << std::endl;
-	std::cout << "3- ACKLEY" << std::endl;
-	std::cout << "4- SCHWEFEL" << std::endl;
-	std::cout << "5- SCHAFFER" << std::endl;
-	std::cout << "6- WEIERSTRASS" << std::endl;
+	cout << "Choisissez le benchmark: (entrez un entier)" << endl;
+	cout << "1- ROSENBROCK" << endl;
+	cout << "2- RASTRIGIN" << endl;
+	cout << "3- ACKLEY" << endl;
+	cout << "4- SCHWEFEL" << endl;
+	cout << "5- SCHAFFER" << endl;
+	cout << "6- WEIERSTRASS" << endl;
 	int choix;
-	std::cin >> choix;
+	cin >> choix;
 	while (choix != 1 && choix != 2 && choix != 3 && choix != 4 && choix != 5 && choix != 6)
 	{
-		std::cout << "Veuillez saisir un entier compris entre 1 et 6." << std::endl;
-		std::cout << std::endl;
-		std::cout << "Choisissez le benchmark: (entrez un entier)" << std::endl;
-		std::cout << "1- ROSENBROCK" << std::endl;
-		std::cout << "2- RASTRIGIN" << std::endl;
-		std::cout << "3- ACKLEY" << std::endl;
-		std::cout << "4- SCHWEFEL" << std::endl;
-		std::cout << "5- SCHAFFER" << std::endl;
-		std::cout << "6- WEIERSTRASS" << std::endl;
+		cout << "Veuillez saisir un entier compris entre 1 et 6." << endl;
+		cout << endl;
+		cout << "Choisissez le benchmark: (entrez un entier)" << endl;
+		cout << "1- ROSENBROCK" << endl;
+		cout << "2- RASTRIGIN" << endl;
+		cout << "3- ACKLEY" << endl;
+		cout << "4- SCHWEFEL" << endl;
+		cout << "5- SCHAFFER" << endl;
+		cout << "6- WEIERSTRASS" << endl;
 	}
 	return choix;
 }
@@ -46,6 +48,13 @@ int main()
 	SetUpParams params{ INDEPENDANT_RUNS, NB_EVOLUTION_STEPS, POPULATION_SIZE, SOLUTION_SIZE };
 	MyAlgorithm ABC{ P, params };
 	ABC.evolution();
-	system("pause");
-	cout << "0" << std::endl;
+	
+	#ifdef _WIN32
+		system("pause");
+	#else
+		cin.ignore(1024, '\n');
+		cout << "Press enter to continue ...";
+		cin.get();
+	#endif
+	cout << "0" << endl;
 }
