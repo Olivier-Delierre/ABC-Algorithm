@@ -25,8 +25,8 @@
 
 #include <ctime>
 
-#include "../include/MyAlgorithm.h"
-#include "../include/Benchmark.h"
+#include "MyAlgorithm.h"
+#include "Benchmark.h"
 
 #define INDEPENDANT_RUNS 2000000
 #define NB_EVOLUTION_STEPS 30

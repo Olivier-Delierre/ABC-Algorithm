@@ -1,5 +1,5 @@
 #include <iomanip>
-#include "../include/MyAlgorithm.h"
+#include "MyAlgorithm.h"
 
 
 MyAlgorithm::MyAlgorithm(const Problem& pbm, const SetUpParams& setup) : 

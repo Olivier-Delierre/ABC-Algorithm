@@ -1,4 +1,4 @@
-#include "../include/Solution.h"
+#include "Solution.h"
 
 Solution::Solution(const Problem& problem) :
 	_problem{ problem }

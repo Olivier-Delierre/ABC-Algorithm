@@ -1,4 +1,4 @@
-#include "../include/Problem.h"
+#include "Problem.h"
 
 Problem::Problem(unsigned int dimension, int numBenchmark) : 
 	_dimension{ dimension }, 

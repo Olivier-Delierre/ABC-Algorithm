@@ -1,4 +1,4 @@
-#include "../include/Benchmark.h"
+#include "Benchmark.h"
 
 double f(const Solution& solution, int num)
 {

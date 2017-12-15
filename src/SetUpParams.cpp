@@ -1,4 +1,4 @@
-#include "../include/SetUpParams.h"
+#include "SetUpParams.h"
 
 /**
 	Constructor to setup parameters for the Algorithm
