@@ -48,7 +48,8 @@ int main()
 	SetUpParams params{ INDEPENDANT_RUNS, NB_EVOLUTION_STEPS, POPULATION_SIZE, SOLUTION_SIZE };
 	MyAlgorithm ABC{ P, params };
 	ABC.evolution();
-	
+
+	// Change if it's Windows or UNIX.	
 	#ifdef _WIN32
 		system("pause");
 	#else

@@ -54,3 +54,8 @@ const unsigned int   SetUpParams::solution_size() const
 {
 	return _solution_size;
 }
+
+const unsigned int SetUpParams::max_trial() const
+{
+	return _max_trial;
+}

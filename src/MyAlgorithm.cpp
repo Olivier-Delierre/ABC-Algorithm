@@ -43,6 +43,26 @@ void MyAlgorithm::sendEmployedBees()
 	}
 }
 
+/**
+ * Function which send the scout bees of the Algorithm. It consist 
+ * on checking if the maximum of trial has been reached.
+ *
+ * If it's true, we reinitialize the solution.
+ */ 
+void MyAlgorithm::sendScoutBees()
+{
+	// For each solutions ...
+	for (unsigned int i = 0; i < _setup.population_size(); i++)
+	{
+		// If the maximum has been reached :
+		if (_trial[i] > _setup.max_trial())
+		{
+			// Reinitialization of the solution
+			_solutions[i].initialize();
+		}
+	}
+}
+
 double MyAlgorithm::evolution()
 {
 	return 0;	
