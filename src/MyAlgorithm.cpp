@@ -25,14 +25,14 @@ void MyAlgorithm::sendEmployedBees()
 		int randomFood = rand()%_setup.solution_size();
 
 		double newValue = 
-				_solutions[i].solution[randomParameter] 
+				_solutions[i]->solution()[randomParameter] 
 				+ (rand()%1) 
-				* (_solutions[i].solution[randomParameter] - _solutions[randomFood].solution[randomParameter]);
+				* (_solutions[i]->solution()[randomParameter] - _solutions[randomFood]->solution()[randomParameter]);
 	
 		// If we get a better solution than previous, we set it, and the number of trial return to 0
-		if (newValue > _solutions[i].solution[randomParameter]) 
+		if (newValue > _solutions[i]->solution()[randomParameter]) 
 		{
-			_solutions[i].solution[randomParameter]; 
+			_solutions[i]->solution()[randomParameter]; 
 			_trial[i] = 0;
 		}
 		// Else, we incremente the number of trial
