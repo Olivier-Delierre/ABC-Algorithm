@@ -8,7 +8,7 @@ Solution::Solution(const Problem& problem) :
 }
 
 Solution::Solution(const Solution& solution) :
-	_solution( solution._solution ),
+	_solution{ solution._solution },
 	_current_fitness{ solution._current_fitness },
 	_problem{ solution._problem }
 {}
@@ -17,30 +17,24 @@ Solution::~Solution()
 {}
 
 std::vector<double> Solution::solution() const
-{ 
-	return _solution; 
-}
+{ return _solution; }
 
 double Solution::current_fitness() const
-{
-	return _current_fitness;
-}
+{ return _current_fitness; }
 
 Problem Solution::problem() const
-{
-	return _problem;
-}
+{ return _problem; }
 
 void Solution::initialize()
 {
 	for (unsigned int i = 0; i < _solution.size(); i++)
-		_solution[i] = _problem.LowerLimit + (rand() % 1) * (_problem.UpperLimit - _problem.LowerLimit);
+		_solution[i] = _problem.lower_limit() + (rand() % 1) * (_problem.upper_limit() - _problem.lower_limit());
 }
 
 void Solution::calculate_fitness()
 {
 	//Calcul des fitness
-	vector <double> fitness;
+	std::vector<double> fitness;
 	fitness.resize(_solution.size());
 	for (unsigned int i = 0; i < fitness.size(); i++)
 	{

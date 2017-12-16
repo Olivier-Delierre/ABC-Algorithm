@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['benchmark_2ecpp',['Benchmark.cpp',['../_benchmark_8cpp.html',1,'']]],
-  ['benchmark_2eh',['Benchmark.h',['../_benchmark_8h.html',1,'']]],
-  ['best_5fcost',['best_cost',['../class_my_algorithm.html#ad72432c2426378bbc70b561ed46b28e1',1,'MyAlgorithm']]],
-  ['best_5fsolution',['best_solution',['../class_my_algorithm.html#a0c87764dcd9085aa53ea5eefed0ea25d',1,'MyAlgorithm']]]
+  ['calculate_5ffitness',['calculate_fitness',['../class_solution.html#a47d489371dd52f0135a6d9d17874a468',1,'Solution']]],
+  ['choice_5fof_5fbenchmark',['choice_of_benchmark',['../main_8cpp.html#a57cfcc6820355c78f8b8096251b653a8',1,'main.cpp']]],
+  ['current_5ffitness',['current_fitness',['../class_solution.html#aae37b2c1381c363a4df4554dbe0aebdf',1,'Solution']]]
 ];

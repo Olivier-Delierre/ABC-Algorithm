@@ -1,34 +1,58 @@
 #ifndef PROBLEM_H
 #define PROBLEM_H
 
-#include <iostream>
-#include <vector>
-
 class Solution;
-
-using namespace std;
 
 class Problem
 {
 public:
-	Problem(unsigned int dimension, int numBenchmark);
-	//~Problem();
-
+	/**
+	 * Constructor with a dimension and a benchmark number.
+	 * The constructor initialize the _dimension var and set the lower and upper limits
+	 * given the choosen benchmark number.
+	 *
+	 * \params dimension The dimension of the problem
+	 * \params benchmark_number The number of the benchmark.
+	 */
+	Problem(unsigned int dimension, int benchmark_number);
 	
+	/// Default destructor
+	~Problem();
 
-	friend ostream& operator<< (ostream& os, const Problem& pbm);
-	friend istream& operator>> (istream& is, Problem& pbm);
-
-	Problem& operator=  (const Problem& pbm);
-	bool operator== (const Problem& pbm) const;
-	bool operator!= (const Problem& pbm) const;
-
+	/**
+	 * Returns the dimension of the problem.
+	 *
+	 * \returns the dimension of the problem.
+	 */
 	unsigned int dimension() const;
-	double LowerLimit, UpperLimit;
 
+	/**
+	 * Returns the lower limit of the problem.
+	 *
+	 * \returns the lower limit of the problem.
+	 */
+	double lower_limit() const;
+
+	/**
+	 * Returns the upper limit of the problem.
+	 *
+	 * \returns the upper limit of the problem.
+	 */
+	double upper_limit() const;
+
+	/**
+	 * Returns the number of the choosen benchmark.
+	 *
+	 * \returns the number of the choosen benchmark.
+	 */
+	int benchmark_number() const;
 private:
+	/// The dimension of the problem.
 	unsigned int _dimension;
-	int _numBenchmark;
+	/// The two limits of the problem (which defines the function used by the benchmark).
+	double _lower_limit, _upper_limit;
+	/// The number of the choosen benchmark.
+	int _benchmark_number;
 };
 
 #endif

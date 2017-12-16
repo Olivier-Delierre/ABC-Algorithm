@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['calculate_5ffitness',['calculate_fitness',['../class_solution.html#a47d489371dd52f0135a6d9d17874a468',1,'Solution']]],
-  ['calculateprobabilities',['calculateProbabilities',['../class_my_algorithm.html#aa14015027c92fc70281f9ecba4814ccf',1,'MyAlgorithm']]],
-  ['choice_5fof_5fbenchmark',['choice_of_benchmark',['../main_8cpp.html#a57cfcc6820355c78f8b8096251b653a8',1,'main.cpp']]],
-  ['current_5ffitness',['current_fitness',['../class_solution.html#aae37b2c1381c363a4df4554dbe0aebdf',1,'Solution']]]
+  ['dimension',['dimension',['../class_problem.html#a0f0fd4198894c421ce7367e3a90e19f9',1,'Problem']]]
 ];

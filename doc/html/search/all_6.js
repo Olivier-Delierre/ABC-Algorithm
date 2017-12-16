@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['f',['f',['../_benchmark_8cpp.html#aa90de98fdb79ea21f6a19a72334ed1f0',1,'f(const Solution &amp;solution, int num):&#160;Benchmark.cpp'],['../_benchmark_8h.html#a54089669ed83baadf8e9faab0b041213',1,'f(const Solution &amp;solution):&#160;Benchmark.h']]],
-  ['fitness',['fitness',['../class_my_algorithm.html#a24450f9389ffbd53687889c04066444e',1,'MyAlgorithm::fitness(const int index) const'],['../class_my_algorithm.html#a9213394ef13e62ce57bb78fb3ed64ed1',1,'MyAlgorithm::fitness(const unsigned int index) const']]]
+  ['independant_5fruns',['INDEPENDANT_RUNS',['../main_8cpp.html#a95b01c773b3570de2b04027b24bd4e3f',1,'main.cpp']]],
+  ['independent_5fruns',['independent_runs',['../class_set_up_params.html#a58c6593c6243916d7dec3fd325f648fe',1,'SetUpParams']]],
+  ['initialize',['initialize',['../class_my_algorithm.html#aae992920a3b35744b3412cb7cc6b4b18',1,'MyAlgorithm::initialize()'],['../class_solution.html#a0524895b67d4e1163597dbff219d4215',1,'Solution::initialize()']]]
 ];

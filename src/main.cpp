@@ -25,13 +25,14 @@
 
 #include <ctime>
 
-#include "MyAlgorithm.h"
 #include "Benchmark.h"
+#include "MyAlgorithm.h"
 
 #define INDEPENDANT_RUNS 2000000
 #define NB_EVOLUTION_STEPS 30
 #define POPULATION_SIZE 30
 #define SOLUTION_SIZE 30
+#define MAX_TRIALS 30
 
 using namespace std;
 
@@ -71,7 +72,7 @@ int main()
 	srand(time(0));
 	int benchmark_number = choice_of_benchmark();
 	Problem P{ SOLUTION_SIZE, benchmark_number };
-	SetUpParams params{ INDEPENDANT_RUNS, NB_EVOLUTION_STEPS, POPULATION_SIZE, SOLUTION_SIZE };
+	SetUpParams params{ INDEPENDANT_RUNS, NB_EVOLUTION_STEPS, POPULATION_SIZE, SOLUTION_SIZE, MAX_TRIALS };
 	MyAlgorithm ABC{ P, params };
 	ABC.evolution();
 

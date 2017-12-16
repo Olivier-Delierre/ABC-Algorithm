@@ -1,22 +1,20 @@
-#include <iomanip>
 #include "MyAlgorithm.h"
 
-
-MyAlgorithm::MyAlgorithm(const Problem& pbm, const SetUpParams& setup) : 
+MyAlgorithm::MyAlgorithm(const Problem& problem, const SetUpParams& params) : 
+	_params{ params },
 	_solutions{}, 
 	_fitness_values{}, 
-	_setup{ setup },
 	_probabilities{},
-	_trial{}
+	_trials{}
 {
-	_solutions.resize(_setup.population_size());
-	_fitness_values.resize(_setup.population_size());
-	_trial.resize(_setup.population_size());
-	for (unsigned int i = 0; i < _setup.population_size(); i++)
+	_solutions.resize(_params.population_size());
+	_fitness_values.resize(_params.population_size());
+	_trials.resize(_params.population_size());
+	for (unsigned int i = 0; i < _params.population_size(); i++)
 	{
-		_solutions[i] = new Solution{ pbm };
-		_fitness_values[i] = _solutions[i]->current_fitness();
-	};
+		_solutions[i] = new Solution{ problem };
+	}
+	evaluate();
 }
 
 void MyAlgorithm::initialize()
@@ -24,82 +22,9 @@ void MyAlgorithm::initialize()
 	for (unsigned int i = 0; i<_solutions.size(); i++)
 	{
 		_solutions[i]->initialize();
-		_fitness_values[i] = _solutions[i]->current_fitness();
 	}
-}
 
-
-/**
- * Function which send the employed bees of the Algorithm. It consist of generating for each
- * solutions of the Algorithm, a random parameter which represents a dimension number.
- *
- * This algorithm calculate a new value for this precise food.
- */ 
-void MyAlgorithm::sendEmployedBees()
-{
-	for (unsigned int i = 0; i < _setup.population_size(); i++)
-	{
-		// Calculation of a random parameter between 0 and the dimension size -1
-		int randomParameter = rand()%_setup.population_size();
-		// Calculation of a random food between 0 and the size of the solution -1
-		int randomFood = rand()%_setup.solution_size();
-
-		double newValue = 
-				_solutions[i]->solution()[randomParameter] 
-				+ (rand()%1) 
-				* (_solutions[i]->solution()[randomParameter] - _solutions[randomFood]->solution()[randomParameter]);
-	
-		// If we get a better solution than previous, we set it, and the number of trial return to 0
-		if (newValue > _solutions[i]->solution()[randomParameter]) 
-		{
-			_solutions[i]->solution()[randomParameter]; 
-			_trial[i] = 0;
-		}
-		// Else, we incremente the number of trial
-		else
-		{
-			_trial[i]++;
-		}
-	}
-}
-
-void MyAlgorithm::sendOnLookerBees()
-{}
-
-/**
- * Function which send the scout bees of the Algorithm. It consist 
- * on checking if the maximum of trial has been reached.
- *
- * If it's true, we reinitialize the solution.
- */ 
-void MyAlgorithm::sendScoutBees()
-{
-	// For each solutions ...
-	for (unsigned int i = 0; i < _setup.population_size(); i++)
-	{
-		// If the maximum has been reached :
-		if (_trial[i] > _setup.max_trial())
-		{
-			// Reinitialization of the solution
-			_solutions[i]->initialize();
-		}
-	}
-}
-
-double MyAlgorithm::evolution()
-{
-	for (unsigned int i = 0; i < _setup.independent_runs(); i++)
-	{
-		initialize();
-		for (unsigned int j = 0; j < _setup.nb_evolution_steps(); j++)
-		{
-			sendEmployedBees();
-			sendOnLookerBees();
-			sendScoutBees();
-			cout << "Run " << setw(3) << i + 1 << " evolution " << setw(6) << j + 1 << " : " << setw(10) << best_cost() << std::endl;
-		}
-	}
-	return 0;
+	evaluate();
 }
 
 void MyAlgorithm::evaluate()
@@ -108,10 +33,24 @@ void MyAlgorithm::evaluate()
 		_fitness_values[i] = _solutions[i]->current_fitness();
 }
 
-/**
-Destructor of MyAlgorithm
+void MyAlgorithm::evolution()
+{
+	for (unsigned int i = 0; i < _params.independent_runs(); i++)
+	{
+		initialize();
+		for (unsigned int j = 0; j < _params.nb_evolution_steps(); j++)
+		{
+			evaluate();
+			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost() << std::endl;
+			send_employed_bees();
+			send_onlooker_bees();
+			send_scout_bees();
+		}
+		std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << _params.nb_evolution_steps() << " : " << std::setw(10) << best_cost() << std::endl;
+	}
+}
 
-*/
+
 MyAlgorithm::~MyAlgorithm()
 {
 	for (unsigned int i = 0; i < _solutions.size(); i++)
@@ -120,33 +59,17 @@ MyAlgorithm::~MyAlgorithm()
 	}
 }
 
-/**
-Return the individuals in population
+std::vector<Solution*> MyAlgorithm::solutions() const
+{ return _solutions; }
 
-@return _solutions - returns the individuals in population
-*/
-const vector<Solution*>& MyAlgorithm::solutions() const
-{
-	return _solutions;
-}
+std::vector<double> MyAlgorithm::fitness_values() const
+{ return _fitness_values; }
 
-/**
-	Return the fitness number index
-*/
-double MyAlgorithm::fitness(const int index) const
-{ 
-	return _fitness_values[index];
-}
-
-
-/*
-	Return best fitness' index
-*/
-int MyAlgorithm::upper_cost() const
+unsigned int MyAlgorithm::upper_cost() const
 {
 	double max = 0;
 
-	for (unsigned int i = 1; i < _setup.population_size(); i++) 
+	for (unsigned int i = 1; i < _params.population_size(); i++) 
 	{
 		if (_fitness_values[i] > _fitness_values[max]) max = i;
 	}
@@ -154,14 +77,11 @@ int MyAlgorithm::upper_cost() const
 	return max;
 }
 
-/*
-Return lower fitness' index
-*/
-int MyAlgorithm::lower_cost() const
+unsigned int MyAlgorithm::lower_cost() const
 {
 	double min = 0;
 	
-	for (unsigned int i = 1; i < _setup.population_size(); i++) 
+	for (unsigned int i = 1; i < _params.population_size(); i++) 
 	{
 		if (_fitness_values[i] < _fitness_values[min]) min = i;
 	}
@@ -169,54 +89,66 @@ int MyAlgorithm::lower_cost() const
 	return min;
 }
 
-/*
-	Return best fitness
-*/
 double MyAlgorithm::best_cost()  const
 {
-	return fitness(lower_cost()); 
+	return _fitness_values[lower_cost()]; 
 }
 
-
-/*
-	Return worst fitness
- */
 double MyAlgorithm::worst_cost() const 
 {
-	return fitness(upper_cost()); 
+	return _fitness_values[upper_cost()]; 
 }
 
-/**
-Return the individual index in population
-
-@return _solutions[index] - returns the individual index in population
-*/
-Solution& MyAlgorithm::solution(const unsigned int index) const
+void MyAlgorithm::send_employed_bees()
 {
-	return *(_solutions[index]);
+	for (unsigned int i = 0; i < _params.population_size(); i++)
+	{
+		// Calculation of a random parameter between 0 and the dimension size -1
+		int randomParameter = rand()%_params.population_size();
+		// Calculation of a random food between 0 and the size of the solution -1
+		int randomFood = rand()%_params.solution_size();
+
+		double newValue = 
+				_solutions[i]->solution()[randomParameter] 
+				+ (rand()%1) 
+				* (_solutions[i]->solution()[randomParameter] - _solutions[randomFood]->solution()[randomParameter]);
+	
+		if (newValue > _solutions[i]->solution()[randomParameter]) 
+		{
+			_solutions[i]->solution()[randomParameter]; 
+			_trials[i] = 0;
+		}
+		else
+		{
+			_trials[i]++;
+		}
+	}
 }
 
-/**
-Return the fitness 
+void MyAlgorithm::send_onlooker_bees()
+{}
 
-@return _fitness_values[index] - returns the fitness
-*/
-double MyAlgorithm::fitness(const unsigned int index) const
+void MyAlgorithm::send_scout_bees()
 {
-	return _fitness_values[index];
+	for (unsigned int i = 0; i < _params.population_size(); i++)
+	{
+		if (_trials[i] > _params.max_trials())
+		{
+			_solutions[i]->initialize();
+		}
+	}
 }
-
-void MyAlgorithm::calculateProbabilities()
+void MyAlgorithm::calculate_probabilities()
 {
-	_probabilities.resize(_setup.solution_size());
+	_probabilities.resize(_params.solution_size());
 	double sumfit = 0;
  
-	for (unsigned int i = 0; i < _setup.solution_size(); i++)
+	for (unsigned int i = 0; i < _params.solution_size(); i++)
 	{
 			sumfit += _fitness_values[i];
 	}
 
-	for (unsigned int i = 0; i < _setup.solution_size(); i++)
+	for (unsigned int i = 0; i < _params.solution_size(); i++)
 	{
 		_probabilities[i] = _fitness_values[i] / sumfit;
 	}

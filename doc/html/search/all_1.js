@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['ackley',['Ackley',['../_benchmark_8cpp.html#af17f12e1c92425e2b6655dd6e9db5e31',1,'Ackley(const Solution &amp;solution):&#160;Benchmark.cpp'],['../_benchmark_8h.html#af17f12e1c92425e2b6655dd6e9db5e31',1,'Ackley(const Solution &amp;solution):&#160;Benchmark.cpp']]]
+  ['benchmark_2ecpp',['Benchmark.cpp',['../_benchmark_8cpp.html',1,'']]],
+  ['benchmark_2eh',['Benchmark.h',['../_benchmark_8h.html',1,'']]],
+  ['benchmark_5fnumber',['benchmark_number',['../class_problem.html#a95feff2050f520e3989d6ccaea1dcfda',1,'Problem']]],
+  ['best_5fcost',['best_cost',['../class_my_algorithm.html#ad72432c2426378bbc70b561ed46b28e1',1,'MyAlgorithm']]],
+  ['best_5fsolution',['best_solution',['../class_my_algorithm.html#a0c87764dcd9085aa53ea5eefed0ea25d',1,'MyAlgorithm']]]
 ];

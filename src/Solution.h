@@ -1,11 +1,10 @@
 #ifndef SOLUTION_H
 #define SOLUTION_H
 
-#define _USE_MATH_DEFINES
-
-#include <vector>
-#include <cmath>
 #include <climits>
+#include <cmath>
+#include <vector>
+
 #include "Problem.h"
 
 class Solution
@@ -14,7 +13,7 @@ public:
 	/**
  	 * Constructor with a problem.
  	 *
- 	 * \param[in] problem A Problem.
+ 	 * \param problem A Problem.
 	 */
 	Solution(const Problem& problem);
 
@@ -52,23 +51,29 @@ public:
 	/**
 	 * Overload of the copy operator.
 	 *
+	 * \params solution An other solution
+	 * 
 	 * \returns the solution which sustains the copy.
 	 */
-	Solution& operator=  (const Solution& sol);
+	Solution& operator=  (const Solution& solution);
 
 	/**
 	 * Overload of the "equal to" operator.
 	 *
+	 * \params solution An other solution
+	 * 
 	 * \returns true if the two solutions are the same. Else, returns false.
 	 */
-	bool operator== (const Solution& sol) const;
+	bool operator== (const Solution& solution) const;
 
 	/**
 	 * Overload of the "different to" operator.
 	 *
+	 * \params solution An other solution
+	 *
 	 * \returns true if the two solutions are different. Else, returns false.
 	 */
-	bool operator!= (const Solution& sol) const;
+	bool operator!= (const Solution& solution) const;
 
 	/**
 	 * Initialize the solution.
