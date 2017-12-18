@@ -8,7 +8,7 @@ Solution::Solution(const Problem& problem) :
 }
 
 Solution::Solution(const Solution& solution) :
-	_solution{ solution._solution },
+	_solution( solution._solution ),
 	_current_fitness{ solution._current_fitness },
 	_problem{ solution._problem }
 {}

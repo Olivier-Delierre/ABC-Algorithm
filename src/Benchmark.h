@@ -1,7 +1,6 @@
 #ifndef BENCHMARK_H
 #define BENCHMARK_H
 
-
 class Solution;
 
 namespace Benchmark {

@@ -1,6 +1,7 @@
 #ifndef SOLUTION_H
 #define SOLUTION_H
 
+#define _USE_MATH_DEFINES
 #include <climits>
 #include <cmath>
 #include <vector>

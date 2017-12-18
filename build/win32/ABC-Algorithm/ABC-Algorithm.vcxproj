@@ -122,11 +122,11 @@
     <ClCompile Include="..\..\..\src\Solution.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\Benchmark.h" />
-    <ClInclude Include="..\..\..\include\MyAlgorithm.h" />
-    <ClInclude Include="..\..\..\include\Problem.h" />
-    <ClInclude Include="..\..\..\include\SetUpParams.h" />
-    <ClInclude Include="..\..\..\include\Solution.h" />
+    <ClInclude Include="..\..\..\src\Benchmark.h" />
+    <ClInclude Include="..\..\..\src\MyAlgorithm.h" />
+    <ClInclude Include="..\..\..\src\Problem.h" />
+    <ClInclude Include="..\..\..\src\SetUpParams.h" />
+    <ClInclude Include="..\..\..\src\Solution.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

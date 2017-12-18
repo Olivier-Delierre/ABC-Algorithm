@@ -35,19 +35,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\Problem.h">
+    <ClInclude Include="..\..\..\src\Benchmark.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\Solution.h">
+    <ClInclude Include="..\..\..\src\MyAlgorithm.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\SetUpParams.h">
+    <ClInclude Include="..\..\..\src\Problem.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\MyAlgorithm.h">
+    <ClInclude Include="..\..\..\src\SetUpParams.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\Benchmark.h">
+    <ClInclude Include="..\..\..\src\Solution.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
