@@ -28,29 +28,29 @@ Problem Solution::problem() const
 void Solution::initialize()
 {
 	for (unsigned int i = 0; i < _solution.size(); i++)
-		_solution[i] = _problem.lower_limit() + (rand() % 1) * (_problem.upper_limit() - _problem.lower_limit());
+		_solution[i] = _problem.lower_limit() + (static_cast<double>(rand()) / static_cast<double>(RAND_MAX)) * (_problem.upper_limit() - _problem.lower_limit());
 }
 
 void Solution::calculate_fitness()
 {
-	//Calcul des fitness
 	std::vector<double> fitness;
 	fitness.resize(_solution.size());
 	for (unsigned int i = 0; i < fitness.size(); i++)
 	{
-		//double fx = f();
-		//if (fx >= 0) //si f(x)>=0 avec x étant une solution
-			//fitness[i] = 1 / (1 + fx);
-		//else
-			//fitness[i] = 1 + fabs(fx);
+		double f = Benchmark::f(*this, _problem.benchmark_number());
+		if (f >= 0)
+			fitness[i] = 1 / (1 + f);
+		else
+			fitness[i] = 1 + fabs(f);
 	}
 
-	//Recherche de la meilleure fitness (la plus proche de zéro, comme toutes les valeurs sont positives il suffit de trouver le minimum)
 	double min = INT_MAX;
 	for (unsigned int i = 0; i < fitness.size(); i++)
 	{
 		if (fitness[i] < min)
 			min = fitness[i];
 	}
+
+	_current_fitness = min;
 }
 

@@ -14,7 +14,6 @@ MyAlgorithm::MyAlgorithm(const Problem& problem, const SetUpParams& params) :
 	{
 		_solutions[i] = new Solution{ problem };
 	}
-	evaluate();
 }
 
 void MyAlgorithm::initialize()
@@ -23,25 +22,26 @@ void MyAlgorithm::initialize()
 	{
 		_solutions[i]->initialize();
 	}
-
-	evaluate();
 }
 
 void MyAlgorithm::evaluate()
 {
 	for (unsigned int i = 0; i < _solutions.size(); i++)
+	{
+		_solutions[i]->calculate_fitness();
 		_fitness_values[i] = _solutions[i]->current_fitness();
+	}
 }
 
 void MyAlgorithm::evolution()
 {
-	for (unsigned int i = 0; i < _params.independent_runs(); i++)
+	for (unsigned int i = 0; i < _params.independent_runs() / 30 ; i++)
 	{
 		initialize();
 		for (unsigned int j = 0; j < _params.nb_evolution_steps(); j++)
 		{
 			evaluate();
-			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost() << std::endl;
+			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << _solutions[j]->current_fitness() << std::endl;
 			send_employed_bees();
 			send_onlooker_bees();
 			send_scout_bees();
@@ -110,7 +110,7 @@ void MyAlgorithm::send_employed_bees()
 
 		double newValue = 
 				_solutions[i]->solution()[randomParameter] 
-				+ (rand()%1) 
+				+ (static_cast<double>(rand()) / static_cast<double>(RAND_MAX)) 
 				* (_solutions[i]->solution()[randomParameter] - _solutions[randomFood]->solution()[randomParameter]);
 	
 		if (newValue > _solutions[i]->solution()[randomParameter]) 

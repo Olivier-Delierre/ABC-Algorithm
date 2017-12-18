@@ -1,5 +1,7 @@
 #include "Benchmark.h"
+#include "Solution.h"
 
+namespace Benchmark {
 double f(const Solution& solution, int num)
 {
 	switch (num)
@@ -77,5 +79,17 @@ double Schaffer(const Solution &solution)
 
 double Weierstrass(const Solution &solution)
 {
-	return 0;
+	double a{ 0.5 }, b{ 12 };
+
+	double sum{ 0 };
+
+	for (unsigned int i = 0; i < solution.problem().dimension(); i++)
+	{
+		for (unsigned int j = 0; j <= 20; j++)
+		{
+			sum += pow(a, j) * cos(M_PI * pow(b, j) * solution.solution()[i]);
+		}
+	}
+	return sum;
+}
 }

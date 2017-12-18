@@ -1,8 +1,10 @@
 #ifndef BENCHMARK_H
 #define BENCHMARK_H
 
-#include "Solution.h"
 
+class Solution;
+
+namespace Benchmark {
 /**
  * Returns the result of the fonction used by the choosen benchmark.
  *
@@ -10,7 +12,7 @@
  *
  * \returns the result of the choosen function.
  */
-double f(const Solution& solution);
+double f(const Solution& solution, int num);
 
 /**
  * Returns the result of the Rosenbrock function applied on the solution.
@@ -65,5 +67,5 @@ double Schaffer(const Solution &solution);
  * \returns the result of the function.
  */
 double Weierstrass(const Solution &solution);
-
+}
 #endif

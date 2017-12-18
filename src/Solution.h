@@ -5,6 +5,7 @@
 #include <cmath>
 #include <vector>
 
+#include "Benchmark.h"
 #include "Problem.h"
 
 class Solution
