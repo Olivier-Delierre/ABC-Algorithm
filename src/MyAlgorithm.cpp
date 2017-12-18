@@ -130,14 +130,21 @@ void MyAlgorithm::send_onlooker_bees()
 
 void MyAlgorithm::send_scout_bees()
 {
+	unsigned int max_trial_index{ 0 };
 	for (unsigned int i = 0; i < _params.population_size(); i++)
 	{
-		if (_trials[i] > _params.max_trials())
+		if (_trials[i] > _trials[max_trial_index])
 		{
-			_solutions[i]->initialize();
+			max_trial_index = i;
 		}
 	}
+
+	if (_trials[max_trial_index] > _params.max_trials())
+	{
+		_solutions[max_trial_index]->initialize();
+	}
 }
+
 void MyAlgorithm::calculate_probabilities()
 {
 	_probabilities.resize(_params.solution_size());
