@@ -22,6 +22,7 @@ void MyAlgorithm::initialize()
 	for (unsigned int i = 0; i<_solutions.size(); i++)
 	{
 		_solutions[i]->initialize();
+		_solutions[i]->calculate_fitness();
 	}
 }
 
@@ -41,13 +42,12 @@ void MyAlgorithm::evolution()
 		initialize();
 		for (unsigned int j = 0; j < _params.nb_evolution_steps(); j++)
 		{
-			evaluate();
 			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << _solutions[j]->current_fitness() << std::endl;
 			send_employed_bees();
 			send_onlooker_bees();
 			send_scout_bees();
 		}
-		std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << _params.nb_evolution_steps() << " : " << std::setw(10) << best_cost() << std::endl;
+		std::cout << std::endl;
 	}
 }
 
@@ -66,7 +66,7 @@ std::vector<Solution*> MyAlgorithm::solutions() const
 std::vector<double> MyAlgorithm::fitness_values() const
 { return _fitness_values; }
 
-unsigned int MyAlgorithm::upper_cost() const
+double MyAlgorithm::upper_cost() const
 {
 	double max = 0;
 
@@ -78,7 +78,7 @@ unsigned int MyAlgorithm::upper_cost() const
 	return max;
 }
 
-unsigned int MyAlgorithm::lower_cost() const
+double MyAlgorithm::lower_cost() const
 {
 	double min = 0;
 	
@@ -167,14 +167,21 @@ void MyAlgorithm::send_onlooker_bees()
 
 void MyAlgorithm::send_scout_bees()
 {
+	unsigned int max_trial_index{ 0 };
 	for (unsigned int i = 0; i < _params.population_size(); i++)
 	{
-		if (_trials[i] > _params.max_trials())
+		if (_trials[i] > _trials[max_trial_index])
 		{
-			_solutions[i]->initialize();
+			max_trial_index = i;
 		}
 	}
+
+	if (_trials[max_trial_index] > _params.max_trials())
+	{
+		_solutions[max_trial_index]->initialize();
+	}
 }
+
 void MyAlgorithm::calculate_probabilities()
 {
 	double sumfit = 0;

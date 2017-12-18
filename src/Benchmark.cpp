@@ -74,7 +74,16 @@ double Schwefel(const Solution &solution)
 
 double Schaffer(const Solution &solution)
 {
-	return 0;
+
+	double x1 = solution.solution()[1];
+	double x2 = solution.solution()[2];
+
+	double fact1 = pow((sin(x1*x1 - x2*x2)), 2) - 0.5;
+	double fact2 = pow((1 + 0.001*(x1*x1 + x2*x2)), 2);
+
+	double y = 0.5 + fact1 / fact2;
+
+	return y;
 }
 
 double Weierstrass(const Solution &solution)
