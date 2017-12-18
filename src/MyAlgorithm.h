@@ -50,7 +50,7 @@ public:
 	 * 	- Display the information about the last evolution step.
 	 *	Times the number of independant runs set by the parameters.
 	 */	
-	void evolution();
+	double evolution();
 
 	/**
 	 * Returns the vector containing all solutions.

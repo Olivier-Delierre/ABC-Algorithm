@@ -28,8 +28,8 @@
 #include "Benchmark.h"
 #include "MyAlgorithm.h"
 
-#define INDEPENDANT_RUNS 2000000
-#define NB_EVOLUTION_STEPS 30
+#define INDEPENDANT_RUNS 30
+#define NB_EVOLUTION_STEPS 2000000
 #define POPULATION_SIZE 30
 #define SOLUTION_SIZE 30
 #define MAX_TRIALS 30
@@ -84,5 +84,4 @@ int main()
 		cout << "Press enter to continue ...";
 		cin.get();
 	#endif
-	cout << "0" << endl;
 }

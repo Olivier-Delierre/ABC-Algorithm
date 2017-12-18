@@ -29,25 +29,29 @@ void MyAlgorithm::evaluate()
 {
 	for (unsigned int i = 0; i < _solutions.size(); i++)
 	{
-		_solutions[i]->calculate_fitness();
 		_fitness_values[i] = _solutions[i]->current_fitness();
 	}
 }
 
-void MyAlgorithm::evolution()
+double MyAlgorithm::evolution()
 {
+	double meilleur = INT_MAX;
 	for (unsigned int i = 0; i < _params.independent_runs() / 30 ; i++)
 	{
 		initialize();
 		for (unsigned int j = 0; j < _params.nb_evolution_steps(); j++)
 		{
-			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << _solutions[j]->current_fitness() << std::endl;
+			evaluate();
+			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost() << std::endl;
 			send_employed_bees();
 			send_onlooker_bees();
 			send_scout_bees();
 		}
 		std::cout << std::endl;
+		if (meilleur>best_cost())	meilleur = best_cost();
 	}
+	std::cout << "Meilleur    = " << std::setprecision(10) << meilleur << std::endl;
+	return meilleur;
 }
 
 
