@@ -71,14 +71,14 @@ public:
 	 *
 	 * \returns the upper cost of the algorithm.
 	 */
-	unsigned int upper_cost() const;
+	double upper_cost() const;
 
 	/**
 	 * Returns the lower cost of the algorithm.
 	 *
 	 * \returns the lower cost of the algorithm.
 	 */
-	unsigned int lower_cost() const;
+	double lower_cost() const;
 
 	double best_cost() const;
 	double worst_cost() const;

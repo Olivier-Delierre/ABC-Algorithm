@@ -35,22 +35,15 @@ void Solution::calculate_fitness()
 {
 	std::vector<double> fitness;
 	fitness.resize(_solution.size());
+	double f = Benchmark::f(*this, _problem.benchmark_number());
 	for (unsigned int i = 0; i < fitness.size(); i++)
 	{
-		double f = Benchmark::f(*this, _problem.benchmark_number());
 		if (f >= 0)
 			fitness[i] = 1 / (1 + f);
 		else
 			fitness[i] = 1 + fabs(f);
 	}
 
-	double min = INT_MAX;
-	for (unsigned int i = 0; i < fitness.size(); i++)
-	{
-		if (fitness[i] < min)
-			min = fitness[i];
-	}
-
-	_current_fitness = min;
+	_current_fitness = f;
 }
 
