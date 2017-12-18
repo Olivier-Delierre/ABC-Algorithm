@@ -9,6 +9,7 @@ MyAlgorithm::MyAlgorithm(const Problem& problem, const SetUpParams& params) :
 {
 	_solutions.resize(_params.population_size());
 	_fitness_values.resize(_params.population_size());
+	_probabilities.resize(_params.population_size());
 	_trials.resize(_params.population_size());
 	for (unsigned int i = 0; i < _params.population_size(); i++)
 	{
@@ -126,7 +127,43 @@ void MyAlgorithm::send_employed_bees()
 }
 
 void MyAlgorithm::send_onlooker_bees()
-{}
+{
+	calculate_probabilities();
+
+	int t = 0;
+	int i = 0;
+
+	while (t < _params.population_size())
+	{
+		int r = (static_cast<double>(rand()) / static_cast<double>(RAND_MAX));
+		if (r < _probabilities[i])
+		{
+			t++;
+			/*parameter to be changed is determined randomly between 0 and the dimension size -1*/
+			int param2change = rand() % _params.population_size();
+			/*A randomly chosen solution is used in producing a mutant solution of the solution i*/
+			int neighbour = rand() % _params.solution_size();
+			/*Randomly selected solution must be different from the solution i*/
+			double newValue =
+				_solutions[i]->solution()[param2change]
+				+ (static_cast<double>(rand()) / static_cast<double>(RAND_MAX))
+				* (_solutions[i]->solution()[param2change] - _solutions[neighbour]->solution()[param2change]);
+
+			if (newValue > _solutions[i]->solution()[param2change])
+			{
+				_solutions[i]->solution()[param2change];
+				_trials[i] = 0;
+			}
+			else
+			{
+				_trials[i]++;
+			}
+		}
+		i++;
+		if (i == _params.population_size())
+			i = 0;
+	}
+}
 
 void MyAlgorithm::send_scout_bees()
 {
@@ -140,7 +177,6 @@ void MyAlgorithm::send_scout_bees()
 }
 void MyAlgorithm::calculate_probabilities()
 {
-	_probabilities.resize(_params.solution_size());
 	double sumfit = 0;
  
 	for (unsigned int i = 0; i < _params.solution_size(); i++)
