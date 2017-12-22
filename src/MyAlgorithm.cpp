@@ -49,8 +49,15 @@ void MyAlgorithm::evolution()
 	{
 		initialize();
 		for (unsigned int j = 0; j < _params.independent_runs() / _params.nb_evolution_steps(); j++)
-		{   
-            system("clear");
+		{  
+            #ifdef _WIN32
+		        system("cls");
+	        #else
+                system("clear");
+	        #endif
+
+            std::cout << "========= RESULT =========" << std::endl;
+            
             evaluate();
 			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost() << std::endl;
 			send_employed_bees();
