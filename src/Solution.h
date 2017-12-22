@@ -42,6 +42,13 @@ public:
 	 * \returns the fitness of the solution.
 	 */
 	double current_fitness() const;
+
+	/**
+	* Returns the real fitness of the solution.
+	*
+	* \returns the real fitness of the solution.
+	*/
+	double real_current_fitness() const;
 	
 	/**
 	 * Returns the problem of the solution.
@@ -109,6 +116,8 @@ private:
 	std::vector<double> _solution;
 	/// The best fitness of the given solution.
 	double _current_fitness;
+	///  The fitness used by algorithm
+	double _real_current_fitness;
 	/// The problem solved by the solution.
 	const Problem& _problem;
 };

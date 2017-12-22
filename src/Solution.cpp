@@ -22,6 +22,9 @@ std::vector<double> Solution::solution() const
 double Solution::current_fitness() const
 { return _current_fitness; }
 
+double Solution::real_current_fitness() const
+{ return _real_current_fitness; }
+
 Problem Solution::problem() const
 { return _problem; }
 
@@ -46,13 +49,11 @@ void Solution::calculate_fitness()
 	std::vector<double> fitness;
 	fitness.resize(_solution.size());
 	double f = Benchmark::f(*this, _problem.benchmark_number());
-	for (unsigned int i = 0; i < fitness.size(); i++)
-	{
-		if (f >= 0)
-			fitness[i] = 1 / (1 + f);
-		else
-			fitness[i] = 1 + fabs(f);
-	}
+	
+	if (f >= 0)
+		_real_current_fitness = 1 / (1 + f);
+	else
+		_real_current_fitness = 1 + fabs(f);
 
 	_current_fitness = f;
 }

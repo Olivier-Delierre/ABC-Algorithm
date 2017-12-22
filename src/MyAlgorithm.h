@@ -127,6 +127,11 @@ private:
 	 */
 	void calculate_probabilities();
 
+	/**
+	* Sort the vector _probabilities
+	*/
+	void sort_probabilities();
+
 	/// The parameters of the algorithm.
 	const SetUpParams& _params;
 	/// The vector which contains the solutions.
