@@ -27,10 +27,10 @@ MyAlgorithm::~MyAlgorithm()
 
 void MyAlgorithm::initialize()
 {
-	for (unsigned int i = 0; i<_solutions.size(); i++)
+	for (unsigned int i = 0; i < _solutions.size(); i++)
 	{
 		_solutions[i]->initialize();
-		_solutions[i]->calculate_fitness();
+		evaluate();
 	}
 }
 
@@ -50,12 +50,13 @@ void MyAlgorithm::evolution()
 		initialize();
 		for (unsigned int j = 0; j < _params.independent_runs() / _params.nb_evolution_steps(); j++)
 		{   
-            system("clear");
+            system("CLS");
             evaluate();
 			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost() << std::endl;
 			send_employed_bees();
-			//send_onlooker_bees();
-			send_scout_bees();
+			send_onlooker_bees();
+			system("pause");
+			//send_scout_bees();
         }
 	}
 }
@@ -144,10 +145,10 @@ void MyAlgorithm::send_employed_bees()
 void MyAlgorithm::send_onlooker_bees()
 {
 	calculate_probabilities();
-    
     for (unsigned int i = 0; i < _params.population_size(); i++)
     {
-        
+		int random_number = rand() % 101;
+
     }
 }
 
@@ -170,15 +171,22 @@ void MyAlgorithm::send_scout_bees()
 
 void MyAlgorithm::calculate_probabilities()
 {
-	double sumfit = 0;
+	double sumfit{ 0 };
  
-	for (unsigned int i = 0; i < _params.solution_size(); i++)
+	for (unsigned int i = 0; i < _params.population_size(); i++)
 	{
-			sumfit += _fitness_values[i];
+			sumfit += _solutions[i]->real_current_fitness();
 	}
 
-	for (unsigned int i = 0; i < _params.solution_size(); i++)
+	for (unsigned int i = 0; i < _params.population_size(); i++)
 	{
-		_probabilities[i] = _fitness_values[i] / sumfit;
+		_probabilities[i] = _solutions[i]->real_current_fitness() / sumfit * 100;
 	}
+	sort_probabilities(_probabilities);
+}
+
+
+void MyAlgorithm::sort_probabilities()
+{
+
 }
