@@ -94,6 +94,8 @@ public:
 	 */
 	void initialize();
 
+    double return_fitness();
+
 	/**
 	 * Calculate the best fitness of the solution.
 	 *

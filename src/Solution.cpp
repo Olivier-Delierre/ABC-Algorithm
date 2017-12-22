@@ -36,6 +36,11 @@ void Solution::set_value_to_index(double value, int index)
     _solution[index] = value;
 }
 
+double Solution::return_fitness()
+{
+    return Benchmark::f(*this, _problem.benchmark_number());
+}
+
 void Solution::calculate_fitness()
 {
 	std::vector<double> fitness;

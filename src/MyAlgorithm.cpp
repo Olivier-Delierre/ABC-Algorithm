@@ -50,20 +50,12 @@ void MyAlgorithm::evolution()
 		initialize();
 		for (unsigned int j = 0; j < _params.independent_runs() / _params.nb_evolution_steps(); j++)
 		{   
-            std::cin.ignore(1024, '\n');
-            std::cout << "Press enter to continue ...";
-            std::cin.get();
-
-            system("cls");
+            system("clear");
             evaluate();
 			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost() << std::endl;
 			send_employed_bees();
 			//send_onlooker_bees();
 			send_scout_bees();
-
-            ///Debug usage
-            std::cout << "Fitness values :" << std::endl;
-            for (int k = 0; k < _fitness_values.size(); k++) std::cout << k << ':' << _fitness_values[k] << std::endl;
         }
 	}
 }
@@ -122,15 +114,22 @@ void MyAlgorithm::send_bees(int parameter_to_change, int i)
             * (_solutions[i]->solution()[neighbour] - _solutions[neighbour]->solution()[parameter_to_change])
             };
 
-    if (new_value < _solutions[i]->solution()[parameter_to_change]) 
+    Solution *new_solution = new Solution(*_solutions[i]);
+    new_solution->set_value_to_index(new_value, parameter_to_change);
+    double new_fitness = new_solution->return_fitness(); 
+
+    if (new_fitness < _solutions[i]->current_fitness()) 
     {
         _solutions[i]->set_value_to_index(new_value, parameter_to_change); 
         _trials[i] = 0;
     }
+
     else
     {
         _trials[i]++;
     }
+
+    delete new_solution;
 }
 
 void MyAlgorithm::send_employed_bees()
