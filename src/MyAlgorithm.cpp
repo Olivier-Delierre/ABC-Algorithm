@@ -17,6 +17,14 @@ MyAlgorithm::MyAlgorithm(const Problem& problem, const SetUpParams& params) :
 	}
 }
 
+MyAlgorithm::~MyAlgorithm()
+{
+	for (unsigned int i = 0; i < _solutions.size(); i++)
+	{
+		delete _solutions[i];
+	}
+}
+
 void MyAlgorithm::initialize()
 {
 	for (unsigned int i = 0; i<_solutions.size(); i++)
@@ -56,16 +64,7 @@ void MyAlgorithm::evolution()
             ///Debug usage
             std::cout << "Fitness values :" << std::endl;
             for (int k = 0; k < _fitness_values.size(); k++) std::cout << k << ':' << _fitness_values[k] << std::endl;
-		}
-	}
-}
-
-
-MyAlgorithm::~MyAlgorithm()
-{
-	for (unsigned int i = 0; i < _solutions.size(); i++)
-	{
-		delete _solutions[i];
+        }
 	}
 }
 
@@ -109,73 +108,48 @@ double MyAlgorithm::worst_cost() const
 	return _fitness_values[upper_cost()]; 
 }
 
-void MyAlgorithm::send_bees()
+void MyAlgorithm::send_bees(int parameter_to_change, int i)
 {
+    int neighbour{ -1 };
+    
+    do {
+        neighbour = rand() % _params.solution_size();
+    } while (neighbour == i);
+
+    double new_value{ 
+            _solutions[i]->solution()[parameter_to_change] 
+            + (static_cast<double>(rand()) / static_cast<double>(RAND_MAX)) 
+            * (_solutions[i]->solution()[neighbour] - _solutions[neighbour]->solution()[parameter_to_change])
+            };
+
+    if (new_value < _solutions[i]->solution()[parameter_to_change]) 
+    {
+        _solutions[i]->set_value_to_index(new_value, parameter_to_change); 
+        _trials[i] = 0;
+    }
+    else
+    {
+        _trials[i]++;
+    }
 }
 
 void MyAlgorithm::send_employed_bees()
 {
-	for (unsigned int i = 0; i < _params.population_size(); i++)
-	{
-		// Calculation of a random parameter between 0 and the dimension size -1
-		int randomParameter = rand()%_params.population_size();
-		// Calculation of a random food between 0 and the size of the solution -1
-		int randomFood = rand()%_params.solution_size();
-
-		double newValue = 
-				_solutions[i]->solution()[randomParameter] 
-				+ (static_cast<double>(rand()) / static_cast<double>(RAND_MAX)) 
-				* (_solutions[i]->solution()[randomParameter] - _solutions[randomFood]->solution()[randomParameter]);
-	
-		if (newValue > _solutions[i]->solution()[randomParameter]) 
-		{
-			_solutions[i]->solution()[randomParameter]; 
-			_trials[i] = 0;
-		}
-		else
-		{
-			_trials[i]++;
-		}
-	}
+    for (unsigned int i = 0; i < _params.population_size(); i++)
+    {
+        int parameter_to_change = rand() % _params.population_size();
+        send_bees(parameter_to_change, i);
+    }
 }
 
 void MyAlgorithm::send_onlooker_bees()
 {
 	calculate_probabilities();
-
-	int t = 0;
-	int i = 0;
-
-	while (t < _params.population_size())
-	{
-		int r = (static_cast<double>(rand()) / static_cast<double>(RAND_MAX));
-		if (r < _probabilities[i])
-		{
-			t++;
-			/*parameter to be changed is determined randomly between 0 and the dimension size -1*/
-			int param2change = rand() % _params.population_size();
-			/*A randomly chosen solution is used in producing a mutant solution of the solution i*/
-			int neighbour = rand() % _params.solution_size();
-			/*Randomly selected solution must be different from the solution i*/
-			double newValue =
-				_solutions[i]->solution()[param2change]
-				+ (static_cast<double>(rand()) / static_cast<double>(RAND_MAX))
-				* (_solutions[i]->solution()[param2change] - _solutions[neighbour]->solution()[param2change]);
-
-			if (newValue > _solutions[i]->solution()[param2change])
-			{
-				_solutions[i]->solution()[param2change];
-				_trials[i] = 0;
-			}
-			else
-			{
-				_trials[i]++;
-			}
-		}
-		i++;
-		if (i == _params.population_size())
-			i = 0;
-	}
+    
+    for (unsigned int i = 0; i < _params.population_size(); i++)
+    {
+        
+    }
 }
 
 void MyAlgorithm::send_scout_bees()

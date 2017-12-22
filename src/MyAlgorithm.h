@@ -97,7 +97,9 @@ public:
 	 */
 	Solution& worst_solution() const;
 private:
-	/**
+	void send_bees(int parameter_to_change, int i);
+    
+    /**
 	 * Generate a new value for each particles of a solution.
 	 *
 	 * If the new value is better than the previous :

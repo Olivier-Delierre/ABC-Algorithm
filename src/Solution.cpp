@@ -31,6 +31,11 @@ void Solution::initialize()
 		_solution[i] = _problem.lower_limit() + (static_cast<double>(rand()) / static_cast<double>(RAND_MAX)) * (_problem.upper_limit() - _problem.lower_limit());
 }
 
+void Solution::set_value_to_index(double value, int index)
+{
+    _solution[index] = value;
+}
+
 void Solution::calculate_fitness()
 {
 	std::vector<double> fitness;

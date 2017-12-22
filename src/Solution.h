@@ -77,6 +77,15 @@ public:
 	 */
 	bool operator!= (const Solution& solution) const;
 
+    /**
+     * Set a new value to the solution of the index specified
+     * in parameters.
+     *
+     * \params value The new value to apply
+     * \params index The index of the solution to change.
+     */
+    void set_value_to_index(double value, int index);
+
 	/**
 	 * Initialize the solution.
 	 *
