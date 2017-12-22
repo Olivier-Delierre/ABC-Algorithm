@@ -71,14 +71,14 @@ public:
 	 *
 	 * \returns the upper cost of the algorithm.
 	 */
-	double upper_cost() const;
+	int upper_cost() const;
 
 	/**
 	 * Returns the lower cost of the algorithm.
 	 *
 	 * \returns the lower cost of the algorithm.
 	 */
-	double lower_cost() const;
+	int lower_cost() const;
 
 	double best_cost() const;
 	double worst_cost() const;
@@ -97,6 +97,9 @@ public:
 	 */
 	Solution& worst_solution() const;
 private:
+
+	void send_bees();
+
 	/**
 	 * Generate a new value for each particles of a solution.
 	 *

@@ -46,7 +46,7 @@ void MyAlgorithm::evolution()
             std::cout << "Press enter to continue ...";
             std::cin.get();
 
-            system("clear");
+            system("cls");
             evaluate();
 			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost() << std::endl;
 			send_employed_bees();
@@ -75,9 +75,9 @@ std::vector<Solution*> MyAlgorithm::solutions() const
 std::vector<double> MyAlgorithm::fitness_values() const
 { return _fitness_values; }
 
-double MyAlgorithm::upper_cost() const
+int MyAlgorithm::upper_cost() const
 {
-	double max = 0;
+	int max = 0;
 
 	for (unsigned int i = 1; i < _params.population_size(); i++) 
 	{
@@ -87,9 +87,9 @@ double MyAlgorithm::upper_cost() const
 	return max;
 }
 
-double MyAlgorithm::lower_cost() const
+int MyAlgorithm::lower_cost() const
 {
-	double min = 0;
+	int min = 0;
 	
 	for (unsigned int i = 1; i < _params.population_size(); i++) 
 	{
@@ -143,7 +143,7 @@ void MyAlgorithm::send_onlooker_bees()
 {
 	calculate_probabilities();
 
-	int t = 0;
+	unsigned int t = 0;
 	int i = 0;
 
 	while (t < _params.population_size())
