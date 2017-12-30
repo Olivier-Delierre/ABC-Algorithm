@@ -111,7 +111,7 @@ private:
 	void send_employed_bees();
 
 	/**
-	 * 
+	 * Mutate using parameters chosen by calculate_probabilites().
 	 */
 	void send_onlooker_bees();
 
