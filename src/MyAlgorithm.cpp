@@ -49,13 +49,26 @@ void MyAlgorithm::evolution()
 	{
 		initialize();
 		for (unsigned int j = 0; j < _params.independent_runs() / _params.nb_evolution_steps(); j++)
-		{   
-            system("CLS");
+		{  
+            #ifdef WIN_32
+                system("cls");
+            #else
+                system("clear");
+            #endif
             evaluate();
 			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost() << std::endl;
 			send_employed_bees();
 			send_onlooker_bees();
-			system("pause");
+		    
+            /*    
+            #ifdef WIN_32
+                system("pause");
+            #else
+                std::cin.ignore(1024, '\n');
+                std::cout << "Press a key to continue ...";
+                std::cin.get();
+            #endif
+            */
 			send_scout_bees();
         }
 	}
