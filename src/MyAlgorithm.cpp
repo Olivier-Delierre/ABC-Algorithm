@@ -166,13 +166,13 @@ void MyAlgorithm::send_onlooker_bees()
         int k{ 0 };
         int sum{ 0 };
 
-        while (sum <= random_parameter)
+        while (sum <= random_parameter && k < _params.population_size() - 1)
         {
             //std::cout << k << "    " << sum << "    "  << _probabilities[k] << std::endl;
             sum += _probabilities[k];
             k++;
         }
-		int parameter_to_change{ k - 1 };
+		int parameter_to_change{ k };
 	    //std::cout << parameter_to_change << std::endl;	
         //send_bees(parameter_to_change, i);
     }
