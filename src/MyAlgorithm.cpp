@@ -5,7 +5,8 @@ MyAlgorithm::MyAlgorithm(const Problem& problem, const SetUpParams& params) :
 	_solutions{}, 
 	_fitness_values{}, 
 	_probabilities{},
-	_trials{}
+	_trials{},
+    _best_cost_run{}
 {
 	_solutions.resize(_params.population_size());
 	_fitness_values.resize(_params.population_size());
@@ -32,6 +33,7 @@ void MyAlgorithm::initialize()
 		_solutions[i]->initialize();
 		evaluate();
 	}
+    _best_cost_run = best_cost();
 }
 
 void MyAlgorithm::evaluate()
@@ -56,20 +58,18 @@ void MyAlgorithm::evolution()
                 system("clear");
             #endif
             evaluate();
-			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost() << std::endl;
+			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost_run() << std::endl;
 			send_employed_bees();
 			send_onlooker_bees();
 			send_scout_bees();
 
-            /* 
-            #ifdef WIN_32
-                system("pause");
-            #else
-                std::cin.ignore(1024, '\n');
-                std::cout << "Press a key to continue ...";
-                std::cin.get();
-            #endif
-            */
+            
+            if (best_cost_run() > best_cost())
+            { 
+                _best_cost_run = best_cost(); 
+            }
+
+            //std::cin.get();
         }
 	}
 }
@@ -109,9 +109,9 @@ double MyAlgorithm::best_cost()  const
 	return _fitness_values[lower_cost()]; 
 }
 
-double MyAlgorithm::worst_cost() const 
+double MyAlgorithm::best_cost_run()  const
 {
-	return _fitness_values[upper_cost()]; 
+    return _best_cost_run;
 }
 
 void MyAlgorithm::send_bees(int parameter_to_change, int i)
@@ -157,9 +157,7 @@ void MyAlgorithm::send_employed_bees()
 
 void MyAlgorithm::send_onlooker_bees()
 {
-	//calculate_probabilities();
-    //for (int i = 0; i < _probabilities.size()-1; i++)
-    //{ _probabilities[i]; }
+	calculate_probabilities();
 
     for (unsigned int i = 0; i < _params.population_size(); i++)
     {
@@ -170,11 +168,13 @@ void MyAlgorithm::send_onlooker_bees()
 
         while (sum <= random_parameter)
         {
+            //std::cout << k << "    " << sum << "    "  << _probabilities[k] << std::endl;
             sum += _probabilities[k];
             k++;
         }
 		int parameter_to_change{ k };
-		send_bees(parameter_to_change, i);
+	    //std::cout << parameter_to_change << std::endl;	
+        //send_bees(parameter_to_change, i);
     }
 }
 
@@ -197,17 +197,18 @@ void MyAlgorithm::send_scout_bees()
 
 void MyAlgorithm::calculate_probabilities()
 {
-	double sumfit{ 0 };
+	double sumfit = 0;
  
 	for (unsigned int i = 0; i < _params.population_size(); i++)
 	{
-			sumfit += _solutions[i]->real_current_fitness();
+		sumfit += _solutions[i]->real_current_fitness();
 	}
 
 	for (unsigned int i = 0; i < _params.population_size(); i++)
 	{
-		_probabilities[i] = _solutions[i]->real_current_fitness() / sumfit * 100;
-	}
+		_probabilities[i] = (_solutions[i]->real_current_fitness() / sumfit) * 100;
+	    std::cout << _probabilities[i] << std::endl;
+    }
 
 	sort_probabilities();
 }

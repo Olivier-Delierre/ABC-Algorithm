@@ -80,8 +80,19 @@ public:
 	 */
 	int lower_cost() const;
 
+    /**
+     * Returns the best cost of all solutions.
+     *
+     * \returns the best cost of all solutions. 
+     */
 	double best_cost() const;
-	double worst_cost() const;
+
+    /**
+     * Returns the best cost of the actual run.
+     *
+     * \returns the best cost of the actual run.
+     */
+	double best_cost_run() const;
 
 	/**
 	 * Returns the best solution of the algorithm.
@@ -144,6 +155,7 @@ private:
 	std::vector<unsigned int> _trials; 
 	/// Both upper and lower costs of the algorithm.
 	unsigned int _upper_cost, _lower_cost;
+    double _best_cost_run;
 };
 
 #endif
