@@ -59,19 +59,9 @@ void MyAlgorithm::evolution()
 			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost() << std::endl;
 			send_employed_bees();
 			send_onlooker_bees();
-		    
-           
-            
 			send_scout_bees();
-    
-            float sum{ 0 };
 
-            for (int k = 0; k < _probabilities.size(); k++)
-            {
-                sum += _probabilities[k];
-                std::cout << _probabilities[k] << "  " << sum  << std::endl;
-            }
-
+            /* 
             #ifdef WIN_32
                 system("pause");
             #else
@@ -79,6 +69,7 @@ void MyAlgorithm::evolution()
                 std::cout << "Press a key to continue ...";
                 std::cin.get();
             #endif
+            */
         }
 	}
 }
@@ -166,8 +157,10 @@ void MyAlgorithm::send_employed_bees()
 
 void MyAlgorithm::send_onlooker_bees()
 {
-	calculate_probabilities();
-    
+	//calculate_probabilities();
+    //for (int i = 0; i < _probabilities.size()-1; i++)
+    //{ _probabilities[i]; }
+
     for (unsigned int i = 0; i < _params.population_size(); i++)
     {
         int random_parameter{ rand() % 101 };
@@ -175,7 +168,7 @@ void MyAlgorithm::send_onlooker_bees()
         int k{ 0 };
         int sum{ 0 };
 
-        while (sum < random_parameter)
+        while (sum <= random_parameter)
         {
             sum += _probabilities[k];
             k++;
@@ -226,7 +219,7 @@ void MyAlgorithm::sort_probabilities()
     {
         for (unsigned int j = 0; j < _probabilities.size() - 1; j++)
         {
-            if (_probabilities[j] > _probabilities[i])
+            if (_probabilities[j] < _probabilities[i])
             { std::swap(_probabilities[j], _probabilities[i]); }
         }
     }
