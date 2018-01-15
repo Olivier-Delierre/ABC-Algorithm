@@ -172,7 +172,7 @@ void MyAlgorithm::send_onlooker_bees()
             sum += _probabilities[k];
             k++;
         }
-		int parameter_to_change{ k };
+		int parameter_to_change{ k - 1 };
 	    //std::cout << parameter_to_change << std::endl;	
         //send_bees(parameter_to_change, i);
     }
