@@ -1,6 +1,8 @@
 #include "Benchmark.h"
 #include "Solution.h"
 
+#include <iostream>
+
 namespace Benchmark {
 double f(const Solution& solution, int num)
 {
@@ -49,15 +51,18 @@ double Rastrigin(const Solution &solution)
 
 double Ackley(const Solution &solution)
 {
-	double a{ 20.0 }, b{ 0.2 }, c{ 2 * M_PI };
+	double a{ 20.0 }, b{ 0.2 }, c{ 2.0 * M_PI };
 	
-	double sum1{ 0 };
-	double sum2{ 0 };
+	double sum1{ 0.0 };
+	double sum2{ 0.0 };
 
-	sum1 += pow(solution.solution()[0], 2);
-	sum2 += cos(c * solution.solution()[0]);
+    for (unsigned int i = 0; i < solution.problem().dimension(); i++)
+    {
+	    sum1 += pow(solution.solution()[i], 2);
+        sum2 += cos(c * solution.solution()[i]);
+    }
 
-	return -a * exp(-b * sqrt((1 / solution.problem().dimension()) * sum1)) - exp((1 / solution.problem().dimension()) * sum2) + a + exp(1);
+	return -a * exp(-b * sqrt((1.0 / solution.problem().dimension()) * sum1)) - exp((1.0 / solution.problem().dimension()) * sum2) + a + exp(1.0);
 }
 
 double Schwefel(const Solution &solution)
@@ -66,10 +71,11 @@ double Schwefel(const Solution &solution)
 
 	for (unsigned int i = 0; i < solution.problem().dimension(); i++)
 	{
-		sum += solution.solution()[i] * sin(sqrt(fabs(solution.solution()[i])));
+		sum += (solution.solution()[i] * sin(sqrt(fabs(solution.solution()[i]))));
 	}
 
-	return 418.9829 * solution.problem().dimension() - sum;
+    double result = 418.9829 * solution.problem().dimension() - sum;
+	return result;
 }
 
 double Schaffer(const Solution &solution)

@@ -6,12 +6,14 @@ MyAlgorithm::MyAlgorithm(const Problem& problem, const SetUpParams& params) :
 	_fitness_values{}, 
 	_probabilities{},
 	_trials{},
-    _best_cost_run{}
+    _best_cost_run{},
+    _all_best_costs{}
 {
 	_solutions.resize(_params.population_size());
 	_fitness_values.resize(_params.population_size());
 	_probabilities.resize(_params.population_size());
 	_trials.resize(_params.population_size());
+    _all_best_costs.resize(_params.independent_runs());
 	for (unsigned int i = 0; i < _params.population_size(); i++)
 	{
 		_solutions[i] = new Solution{ problem };
@@ -47,31 +49,37 @@ void MyAlgorithm::evaluate()
 
 void MyAlgorithm::evolution()
 {
+    initialize();
+    _best_cost_ever = _best_cost_run;
 	for (unsigned int i = 0; i < _params.nb_evolution_steps(); i++)
 	{
-		initialize();
 		for (unsigned int j = 0; j < _params.independent_runs() / _params.nb_evolution_steps(); j++)
-		{  
-            #ifdef WIN_32
-                system("cls");
-            #else
-                system("clear");
-            #endif
-            evaluate();
+		{
 			std::cout << "Run " << std::setw(3) << i + 1 << " evolution " << std::setw(6) << j + 1 << " : " << std::setw(10) << best_cost_run() << std::endl;
 			send_employed_bees();
 			send_onlooker_bees();
 			send_scout_bees();
 
-            
-            if (best_cost_run() > best_cost())
+            if (_best_cost_run > best_cost())
             { 
                 _best_cost_run = best_cost(); 
             }
 
-            //std::cin.get();
-        }
+            _average_cost += _best_cost_run;
+            _all_best_costs.push_back(_best_cost_run);
+            evaluate();
+        }   
+
+        if (_best_cost_ever > _best_cost_run)
+        {
+            _best_cost_ever = _best_cost_run;
+        } 
+		initialize(); 
 	}
+    std::cout << "Best fitness ever : " << _best_cost_ever << std::endl;
+    std::cout << "Average cost : " << _average_cost << std::endl;
+    std::cout << "Standard deviation : " << standard_deviation() << std::endl;
+    std::cout << "End of program";
 }
 
 std::vector<Solution*> MyAlgorithm::solutions() const
@@ -174,7 +182,7 @@ void MyAlgorithm::send_onlooker_bees()
         }
 		int parameter_to_change{ k };
 	    //std::cout << parameter_to_change << std::endl;	
-        //send_bees(parameter_to_change, i);
+        send_bees(parameter_to_change, i);
     }
 }
 
@@ -207,21 +215,16 @@ void MyAlgorithm::calculate_probabilities()
 	for (unsigned int i = 0; i < _params.population_size(); i++)
 	{
 		_probabilities[i] = (_solutions[i]->real_current_fitness() / sumfit) * 100;
-	    std::cout << _probabilities[i] << std::endl;
     }
-
-	sort_probabilities();
 }
 
-
-void MyAlgorithm::sort_probabilities()
+double MyAlgorithm::standard_deviation() const
 {
-    for (unsigned int i = 0; i < _probabilities.size(); i++)
+    double sum{ 0 }; 
+    for (int i = 0; i < _params.independent_runs(); i++)
     {
-        for (unsigned int j = 0; j < _probabilities.size() - 1; j++)
-        {
-            if (_probabilities[j] < _probabilities[i])
-            { std::swap(_probabilities[j], _probabilities[i]); }
-        }
+        sum += pow(_all_best_costs[i] - _average_cost, 2);
     }
+
+    return sqrt((1.0 / _params.independent_runs()) * sum);
 }

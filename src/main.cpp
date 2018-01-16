@@ -32,7 +32,7 @@
 #define NB_EVOLUTION_STEPS 30
 #define POPULATION_SIZE 30
 #define SOLUTION_SIZE 30
-#define MAX_TRIALS 100
+#define MAX_TRIALS 300
 
 using namespace std;
 

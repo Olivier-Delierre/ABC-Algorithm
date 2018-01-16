@@ -138,10 +138,7 @@ private:
 	 */
 	void calculate_probabilities();
 
-	/**
-	* Sort the vector _probabilities
-	*/
-	void sort_probabilities();
+    double standard_deviation() const;
 
 	/// The parameters of the algorithm.
 	const SetUpParams& _params;
@@ -155,7 +152,14 @@ private:
 	std::vector<unsigned int> _trials; 
 	/// Both upper and lower costs of the algorithm.
 	unsigned int _upper_cost, _lower_cost;
+    /// Best cost of the run.
     double _best_cost_run;
+    /// Best cost ever.
+    double _best_cost_ever;
+    /// All best costs.
+    std::vector<double> _all_best_costs;
+    /// Average cost.
+    double _average_cost;
 };
 
 #endif
