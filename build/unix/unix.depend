@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1510041791 source:/home/olivier/Git/ABC-Algorithm/src/main.cpp
+	"../include/MyAlgorithm.h"
+
+1510088016 /home/olivier/Git/ABC-Algorithm/include/MyAlgorithm.h
+	"Solution.h"
+	"SetUpParams.h"
+
+1510041791 /home/olivier/Git/ABC-Algorithm/include/Solution.h
+	<vector>
+	"Problem.h"
+
+1510041791 /home/olivier/Git/ABC-Algorithm/include/Problem.h
+	<iostream>
+
+1510041791 /home/olivier/Git/ABC-Algorithm/include/SetUpParams.h
+	<iostream>
+

@@ -33,3 +33,6 @@
 
 # VS folder
 .vs
+
+# No swap
+*.swp
