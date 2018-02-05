@@ -1,0 +1,7 @@
+<map id="Benchmark::f" name="Benchmark::f">
+<area shape="rect" id="node2" href="$class_solution.html#adcab8f766292bb7769341c580c397246" title="Solution::return_fitness" alt="" coords="153,5,309,32"/>
+<area shape="rect" id="node6" href="$class_solution.html#a47d489371dd52f0135a6d9d17874a468" title="Solution::calculate\l_fitness" alt="" coords="167,57,296,98"/>
+<area shape="rect" id="node3" href="$class_my_algorithm.html#aa2918cd51518fc517605759fb23f85db" title="MyAlgorithm::best_cost_run" alt="" coords="357,5,543,32"/>
+<area shape="rect" id="node4" href="$class_my_algorithm.html#ae560fba6ec895c1dc82f8a2bb26570a3" title="MyAlgorithm::evolution" alt="" coords="591,5,745,32"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="793,5,844,32"/>
+</map>

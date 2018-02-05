@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['rastrigin',['Rastrigin',['../_benchmark_8cpp.html#adfbd8c90a8110f6a6682a05877c5b6b7',1,'Rastrigin(const Solution &amp;solution):&#160;Benchmark.cpp'],['../_benchmark_8h.html#adfbd8c90a8110f6a6682a05877c5b6b7',1,'Rastrigin(const Solution &amp;solution):&#160;Benchmark.cpp']]],
-  ['rosenbrock',['Rosenbrock',['../_benchmark_8cpp.html#a7f86287dc9a5e9217d2c5266106b9ade',1,'Rosenbrock(const Solution &amp;solution):&#160;Benchmark.cpp'],['../_benchmark_8h.html#a7f86287dc9a5e9217d2c5266106b9ade',1,'Rosenbrock(const Solution &amp;solution):&#160;Benchmark.cpp']]]
+  ['rastrigin',['Rastrigin',['../namespace_benchmark.html#aa87cdf8390e2e091d7a5c50af33b2c1c',1,'Benchmark']]],
+  ['real_5fcurrent_5ffitness',['real_current_fitness',['../class_solution.html#abfc4b98ee6cbda6dd6aa51bb7d870879',1,'Solution']]],
+  ['return_5ffitness',['return_fitness',['../class_solution.html#adcab8f766292bb7769341c580c397246',1,'Solution']]],
+  ['rosenbrock',['Rosenbrock',['../namespace_benchmark.html#a5552bf926ee9c78db11260927aaa3c92',1,'Benchmark']]]
 ];

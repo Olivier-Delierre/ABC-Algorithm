@@ -1,5 +1,6 @@
-<map id="/home/olivier/Projets/ABC&#45;Algorithm/src/MyAlgorithm.h" name="/home/olivier/Projets/ABC&#45;Algorithm/src/MyAlgorithm.h">
-<area shape="rect" id="node4" href="$_set_up_params_8h.html" title="SetUpParams.h" alt="" coords="209,95,330,121"/>
-<area shape="rect" id="node5" href="$_solution_8h.html" title="Solution.h" alt="" coords="354,95,441,121"/>
-<area shape="rect" id="node9" href="$_problem_8h.html" title="Problem.h" alt="" coords="496,169,584,196"/>
+<map id="src/MyAlgorithm.h" name="src/MyAlgorithm.h">
+<area shape="rect" id="node4" href="$_set_up_params_8h.html" title="SetUpParams.h" alt="" coords="192,80,307,107"/>
+<area shape="rect" id="node5" href="$_solution_8h.html" title="Solution.h" alt="" coords="331,80,411,107"/>
+<area shape="rect" id="node9" href="$_benchmark_8h.html" title="Benchmark.h" alt="" coords="424,155,523,181"/>
+<area shape="rect" id="node10" href="$_problem_8h.html" title="Problem.h" alt="" coords="547,155,629,181"/>
 </map>

@@ -16,7 +16,5 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
       [ "SetUpParams", "class_set_up_params.html", "class_set_up_params" ]
     ] ],
     [ "Solution.cpp", "_solution_8cpp.html", null ],
-    [ "Solution.h", "_solution_8h.html", [
-      [ "Solution", "class_solution.html", "class_solution" ]
-    ] ]
+    [ "Solution.h", "_solution_8h.html", "_solution_8h" ]
 ];

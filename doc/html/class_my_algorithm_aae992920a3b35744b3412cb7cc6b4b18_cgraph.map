@@ -1,3 +1,6 @@
 <map id="MyAlgorithm::initialize" name="MyAlgorithm::initialize">
-<area shape="rect" id="node2" href="$class_my_algorithm.html#a2fd3ab71632eea232e8839255573375b" title="MyAlgorithm::evaluate" alt="" coords="223,5,393,32"/>
+<area shape="rect" id="node2" href="$class_my_algorithm.html#a2fd3ab71632eea232e8839255573375b" title="MyAlgorithm::evaluate" alt="" coords="208,5,360,32"/>
+<area shape="rect" id="node3" href="$class_my_algorithm.html#ad72432c2426378bbc70b561ed46b28e1" title="MyAlgorithm::best_cost" alt="" coords="204,56,364,83"/>
+<area shape="rect" id="node4" href="$class_my_algorithm.html#ac03cdef6252a03dd09d4ee6b351840c6" title="MyAlgorithm::lower_cost" alt="" coords="412,56,579,83"/>
+<area shape="rect" id="node5" href="$class_set_up_params.html#a6c8b86ba5388577ef841cfa570028509" title="SetUpParams::population_size" alt="" coords="627,56,829,83"/>
 </map>

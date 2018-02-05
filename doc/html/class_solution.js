@@ -10,5 +10,8 @@ var class_solution =
     [ "operator=", "class_solution.html#a9eb108a1a1e74cd5fb4b30c341010a8e", null ],
     [ "operator==", "class_solution.html#a1b6faa16e8318a5a483a436516bc4f42", null ],
     [ "problem", "class_solution.html#aecfc77f89b8234515ec14024c56bb784", null ],
+    [ "real_current_fitness", "class_solution.html#abfc4b98ee6cbda6dd6aa51bb7d870879", null ],
+    [ "return_fitness", "class_solution.html#adcab8f766292bb7769341c580c397246", null ],
+    [ "set_value_to_index", "class_solution.html#a84e0213fafa02e39c54325b5c8a6cef4", null ],
     [ "solution", "class_solution.html#a0652e5511d0298640484bd8ea130e88f", null ]
 ];

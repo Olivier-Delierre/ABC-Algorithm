@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['solution_5fsize',['SOLUTION_SIZE',['../main_8cpp.html#a46bbe7970a7bb4501bf57781e60190ee',1,'main.cpp']]]
+  ['population_5fsize',['POPULATION_SIZE',['../main_8cpp.html#a53959fa81befcc4e7290a0b5581cbe09',1,'main.cpp']]]
 ];

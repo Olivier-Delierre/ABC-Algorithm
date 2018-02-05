@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nb_5fevolution_5fsteps',['NB_EVOLUTION_STEPS',['../main_8cpp.html#af73986fc55cffdf334c1407bf713cb53',1,'main.cpp']]]
+  ['max_5ftrials',['MAX_TRIALS',['../main_8cpp.html#ac93558012e0602dda95e5c88d648ea00',1,'main.cpp']]]
 ];

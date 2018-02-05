@@ -1,4 +1,6 @@
 <map id="SetUpParams::max_trials" name="SetUpParams::max_trials">
-<area shape="rect" id="node2" href="$class_my_algorithm.html#a3c4a531f64422555afd0a548d01f1123" title="MyAlgorithm::worst_cost" alt="" coords="251,5,433,32"/>
-<area shape="rect" id="node3" href="$class_set_up_params.html#aa0f1681ee3e070806d7cef365b5b9ebf" title="SetUpParams::SetUpParams" alt="" coords="240,56,444,83"/>
+<area shape="rect" id="node2" href="$class_my_algorithm.html#aa2918cd51518fc517605759fb23f85db" title="MyAlgorithm::best_cost_run" alt="" coords="230,5,415,32"/>
+<area shape="rect" id="node5" href="$class_set_up_params.html#aa0f1681ee3e070806d7cef365b5b9ebf" title="SetUpParams::SetUpParams" alt="" coords="225,56,420,83"/>
+<area shape="rect" id="node3" href="$class_my_algorithm.html#ae560fba6ec895c1dc82f8a2bb26570a3" title="MyAlgorithm::evolution" alt="" coords="468,5,623,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="671,5,721,32"/>
 </map>

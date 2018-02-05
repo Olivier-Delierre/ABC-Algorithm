@@ -1,10 +1,11 @@
 <map id="SetUpParams::population_size" name="SetUpParams::population_size">
-<area shape="rect" id="node2" href="$class_my_algorithm.html#aaba90d1268f6533b60af35a9c1a89211" title="MyAlgorithm::MyAlgorithm" alt="" coords="276,5,472,32"/>
-<area shape="rect" id="node3" href="$class_my_algorithm.html#aad8b74efc06ca632fb614cb0831ff9e1" title="MyAlgorithm::upper_cost" alt="" coords="282,56,466,83"/>
-<area shape="rect" id="node4" href="$class_my_algorithm.html#a3c4a531f64422555afd0a548d01f1123" title="MyAlgorithm::worst_cost" alt="" coords="524,81,707,108"/>
-<area shape="rect" id="node5" href="$class_my_algorithm.html#aeea14367845be24229e53f43e40b07ac" title="MyAlgorithm::lower_cost" alt="" coords="283,157,465,184"/>
-<area shape="rect" id="node9" href="$class_set_up_params.html#aa0f1681ee3e070806d7cef365b5b9ebf" title="SetUpParams::SetUpParams" alt="" coords="272,208,476,235"/>
-<area shape="rect" id="node6" href="$class_my_algorithm.html#ad72432c2426378bbc70b561ed46b28e1" title="MyAlgorithm::best_cost" alt="" coords="528,157,703,184"/>
-<area shape="rect" id="node7" href="$class_my_algorithm.html#ae560fba6ec895c1dc82f8a2bb26570a3" title="MyAlgorithm::evolution" alt="" coords="755,157,929,184"/>
-<area shape="rect" id="node8" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="977,157,1032,184"/>
+<area shape="rect" id="node2" href="$class_my_algorithm.html#aaba90d1268f6533b60af35a9c1a89211" title="MyAlgorithm::MyAlgorithm" alt="" coords="265,5,441,32"/>
+<area shape="rect" id="node3" href="$class_my_algorithm.html#a3db720c7dc6c779683c9af8ff87d0c09" title="MyAlgorithm::upper_cost" alt="" coords="270,56,437,83"/>
+<area shape="rect" id="node4" href="$class_my_algorithm.html#ac03cdef6252a03dd09d4ee6b351840c6" title="MyAlgorithm::lower_cost" alt="" coords="270,107,437,133"/>
+<area shape="rect" id="node9" href="$class_my_algorithm.html#aa2918cd51518fc517605759fb23f85db" title="MyAlgorithm::best_cost_run" alt="" coords="499,157,684,184"/>
+<area shape="rect" id="node10" href="$class_set_up_params.html#aa0f1681ee3e070806d7cef365b5b9ebf" title="SetUpParams::SetUpParams" alt="" coords="256,208,451,235"/>
+<area shape="rect" id="node5" href="$class_my_algorithm.html#ad72432c2426378bbc70b561ed46b28e1" title="MyAlgorithm::best_cost" alt="" coords="511,107,671,133"/>
+<area shape="rect" id="node6" href="$class_my_algorithm.html#aae992920a3b35744b3412cb7cc6b4b18" title="MyAlgorithm::initialize" alt="" coords="732,56,883,83"/>
+<area shape="rect" id="node7" href="$class_my_algorithm.html#ae560fba6ec895c1dc82f8a2bb26570a3" title="MyAlgorithm::evolution" alt="" coords="931,107,1085,133"/>
+<area shape="rect" id="node8" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1133,107,1184,133"/>
 </map>

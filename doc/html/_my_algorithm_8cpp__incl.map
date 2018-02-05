@@ -1,6 +1,7 @@
-<map id="/home/olivier/Projets/ABC&#45;Algorithm/src/MyAlgorithm.cpp" name="/home/olivier/Projets/ABC&#45;Algorithm/src/MyAlgorithm.cpp">
-<area shape="rect" id="node2" href="$_my_algorithm_8h.html" title="MyAlgorithm.h" alt="" coords="148,95,265,121"/>
-<area shape="rect" id="node5" href="$_set_up_params_8h.html" title="SetUpParams.h" alt="" coords="209,169,330,196"/>
-<area shape="rect" id="node6" href="$_solution_8h.html" title="Solution.h" alt="" coords="354,169,441,196"/>
-<area shape="rect" id="node10" href="$_problem_8h.html" title="Problem.h" alt="" coords="496,244,584,271"/>
+<map id="src/MyAlgorithm.cpp" name="src/MyAlgorithm.cpp">
+<area shape="rect" id="node2" href="$_my_algorithm_8h.html" title="MyAlgorithm.h" alt="" coords="137,80,244,107"/>
+<area shape="rect" id="node5" href="$_set_up_params_8h.html" title="SetUpParams.h" alt="" coords="192,155,307,181"/>
+<area shape="rect" id="node6" href="$_solution_8h.html" title="Solution.h" alt="" coords="331,155,411,181"/>
+<area shape="rect" id="node10" href="$_benchmark_8h.html" title="Benchmark.h" alt="" coords="424,229,523,256"/>
+<area shape="rect" id="node11" href="$_problem_8h.html" title="Problem.h" alt="" coords="547,229,629,256"/>
 </map>

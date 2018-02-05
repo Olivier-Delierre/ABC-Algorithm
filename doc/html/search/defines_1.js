@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['max_5ftrials',['MAX_TRIALS',['../main_8cpp.html#ac93558012e0602dda95e5c88d648ea00',1,'main.cpp']]]
+  ['independant_5fruns',['INDEPENDANT_RUNS',['../main_8cpp.html#a95b01c773b3570de2b04027b24bd4e3f',1,'main.cpp']]]
 ];

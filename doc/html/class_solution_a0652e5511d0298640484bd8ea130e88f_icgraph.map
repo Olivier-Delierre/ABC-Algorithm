@@ -1,8 +1,15 @@
 <map id="Solution::solution" name="Solution::solution">
-<area shape="rect" id="node2" href="$_benchmark_8h.html#a7f86287dc9a5e9217d2c5266106b9ade" title="Rosenbrock" alt="" coords="207,5,305,32"/>
-<area shape="rect" id="node4" href="$_benchmark_8h.html#adfbd8c90a8110f6a6682a05877c5b6b7" title="Rastrigin" alt="" coords="216,56,296,83"/>
-<area shape="rect" id="node5" href="$_benchmark_8h.html#af17f12e1c92425e2b6655dd6e9db5e31" title="Ackley" alt="" coords="223,107,289,133"/>
-<area shape="rect" id="node6" href="$_benchmark_8h.html#a838713762609c77951ac159d0c0d0632" title="Schwefel" alt="" coords="215,157,297,184"/>
-<area shape="rect" id="node7" href="$class_solution.html#ad0de430e60cab6cff1a19e382130aa5f" title="Solution::Solution" alt="" coords="188,208,324,235"/>
-<area shape="rect" id="node3" href="$_benchmark_8cpp.html#aa90de98fdb79ea21f6a19a72334ed1f0" title="f" alt="" coords="372,81,411,108"/>
+<area shape="rect" id="node2" href="$namespace_benchmark.html#a5552bf926ee9c78db11260927aaa3c92" title="Benchmark::Rosenbrock" alt="" coords="176,5,343,32"/>
+<area shape="rect" id="node9" href="$namespace_benchmark.html#aa87cdf8390e2e091d7a5c50af33b2c1c" title="Benchmark::Rastrigin" alt="" coords="185,56,333,83"/>
+<area shape="rect" id="node10" href="$namespace_benchmark.html#a05091ee54bf5f58626abbb37f853c753" title="Benchmark::Ackley" alt="" coords="191,107,327,133"/>
+<area shape="rect" id="node11" href="$namespace_benchmark.html#ace4fdfff03450c06761989740bc6a002" title="Benchmark::Schwefel" alt="" coords="184,157,335,184"/>
+<area shape="rect" id="node12" href="$namespace_benchmark.html#ab70a105903a6bd08a48dd34438f2ccaa" title="Benchmark::Schaffer" alt="" coords="187,208,332,235"/>
+<area shape="rect" id="node13" href="$namespace_benchmark.html#a69a0f160ecdb9553096f9c03ff115e59" title="Benchmark::Weierstrass" alt="" coords="176,259,343,285"/>
+<area shape="rect" id="node14" href="$class_solution.html#ad0de430e60cab6cff1a19e382130aa5f" title="Solution::Solution" alt="" coords="197,309,321,336"/>
+<area shape="rect" id="node3" href="$namespace_benchmark.html#a831faf0f3da75081240cf54662d0741e" title="Benchmark::f" alt="" coords="391,132,491,159"/>
+<area shape="rect" id="node4" href="$class_solution.html#adcab8f766292bb7769341c580c397246" title="Solution::return_fitness" alt="" coords="539,103,695,129"/>
+<area shape="rect" id="node8" href="$class_solution.html#a47d489371dd52f0135a6d9d17874a468" title="Solution::calculate\l_fitness" alt="" coords="552,154,681,195"/>
+<area shape="rect" id="node5" href="$class_my_algorithm.html#aa2918cd51518fc517605759fb23f85db" title="MyAlgorithm::best_cost_run" alt="" coords="743,103,928,129"/>
+<area shape="rect" id="node6" href="$class_my_algorithm.html#ae560fba6ec895c1dc82f8a2bb26570a3" title="MyAlgorithm::evolution" alt="" coords="976,103,1131,129"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1179,103,1229,129"/>
 </map>

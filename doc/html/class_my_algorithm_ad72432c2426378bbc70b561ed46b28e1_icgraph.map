@@ -1,4 +1,5 @@
 <map id="MyAlgorithm::best_cost" name="MyAlgorithm::best_cost">
-<area shape="rect" id="node2" href="$class_my_algorithm.html#ae560fba6ec895c1dc82f8a2bb26570a3" title="MyAlgorithm::evolution" alt="" coords="228,5,403,32"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="451,5,505,32"/>
+<area shape="rect" id="node2" href="$class_my_algorithm.html#aae992920a3b35744b3412cb7cc6b4b18" title="MyAlgorithm::initialize" alt="" coords="213,5,364,32"/>
+<area shape="rect" id="node3" href="$class_my_algorithm.html#ae560fba6ec895c1dc82f8a2bb26570a3" title="MyAlgorithm::evolution" alt="" coords="412,31,567,57"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="615,31,665,57"/>
 </map>

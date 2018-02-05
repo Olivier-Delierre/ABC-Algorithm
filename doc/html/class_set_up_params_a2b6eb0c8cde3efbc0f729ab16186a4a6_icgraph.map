@@ -1,4 +1,6 @@
 <map id="SetUpParams::solution_size" name="SetUpParams::solution_size">
-<area shape="rect" id="node2" href="$class_my_algorithm.html#a3c4a531f64422555afd0a548d01f1123" title="MyAlgorithm::worst_cost" alt="" coords="267,5,449,32"/>
-<area shape="rect" id="node3" href="$class_set_up_params.html#aa0f1681ee3e070806d7cef365b5b9ebf" title="SetUpParams::SetUpParams" alt="" coords="256,56,460,83"/>
+<area shape="rect" id="node2" href="$class_my_algorithm.html#aa2918cd51518fc517605759fb23f85db" title="MyAlgorithm::best_cost_run" alt="" coords="246,5,431,32"/>
+<area shape="rect" id="node5" href="$class_set_up_params.html#aa0f1681ee3e070806d7cef365b5b9ebf" title="SetUpParams::SetUpParams" alt="" coords="241,56,436,83"/>
+<area shape="rect" id="node3" href="$class_my_algorithm.html#ae560fba6ec895c1dc82f8a2bb26570a3" title="MyAlgorithm::evolution" alt="" coords="484,5,639,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="687,5,737,32"/>
 </map>

@@ -1,10 +1,9 @@
-<map id="/home/olivier/Projets/ABC&#45;Algorithm/src/Problem.h" name="/home/olivier/Projets/ABC&#45;Algorithm/src/Problem.h">
-<area shape="rect" id="node2" href="$_solution_8h.html" title="/home/olivier/Projets\l/ABC&#45;Algorithm/src/Solution.h" alt="" coords="411,95,626,136"/>
-<area shape="rect" id="node9" href="$_problem_8cpp.html" title="/home/olivier/Projets\l/ABC&#45;Algorithm/src/Problem.cpp" alt="" coords="650,95,881,136"/>
-<area shape="rect" id="node3" href="$_benchmark_8h.html" title="/home/olivier/Projets\l/ABC&#45;Algorithm/src/Benchmark.h" alt="" coords="137,184,372,225"/>
-<area shape="rect" id="node6" href="$_my_algorithm_8h.html" title="/home/olivier/Projets\l/ABC&#45;Algorithm/src/MyAlgorithm.h" alt="" coords="397,184,641,225"/>
-<area shape="rect" id="node8" href="$_solution_8cpp.html" title="/home/olivier/Projets\l/ABC&#45;Algorithm/src/Solution.cpp" alt="" coords="665,184,895,225"/>
-<area shape="rect" id="node4" href="$_benchmark_8cpp.html" title="/home/olivier/Projets\l/ABC&#45;Algorithm/src/Benchmark.cpp" alt="" coords="5,273,256,315"/>
-<area shape="rect" id="node5" href="$main_8cpp.html" title="Calculate the minimum of a function using the ABC algorithm. " alt="" coords="281,273,490,315"/>
-<area shape="rect" id="node7" href="$_my_algorithm_8cpp.html" title="/home/olivier/Projets\l/ABC&#45;Algorithm/src/MyAlgorithm.cpp" alt="" coords="515,273,773,315"/>
+<map id="src/Problem.h" name="src/Problem.h">
+<area shape="rect" id="node2" href="$_solution_8h.html" title="src/Solution.h" alt="" coords="177,80,280,107"/>
+<area shape="rect" id="node8" href="$_problem_8cpp.html" title="src/Problem.cpp" alt="" coords="305,80,422,107"/>
+<area shape="rect" id="node3" href="$_benchmark_8cpp.html" title="src/Benchmark.cpp" alt="" coords="5,155,140,181"/>
+<area shape="rect" id="node4" href="$_my_algorithm_8h.html" title="src/MyAlgorithm.h" alt="" coords="165,155,293,181"/>
+<area shape="rect" id="node7" href="$_solution_8cpp.html" title="src/Solution.cpp" alt="" coords="317,155,433,181"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="Calculate the minimum of a function using the ABC algorithm. " alt="" coords="108,229,205,256"/>
+<area shape="rect" id="node6" href="$_my_algorithm_8cpp.html" title="src/MyAlgorithm.cpp" alt="" coords="229,229,372,256"/>
 </map>

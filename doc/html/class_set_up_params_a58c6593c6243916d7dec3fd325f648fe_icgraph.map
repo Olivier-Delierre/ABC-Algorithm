@@ -1,4 +1,6 @@
 <map id="SetUpParams::independent_runs" name="SetUpParams::independent_runs">
-<area shape="rect" id="node2" href="$class_my_algorithm.html#ae560fba6ec895c1dc82f8a2bb26570a3" title="MyAlgorithm::evolution" alt="" coords="287,5,461,32"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="509,5,564,32"/>
+<area shape="rect" id="node2" href="$class_my_algorithm.html#aaba90d1268f6533b60af35a9c1a89211" title="MyAlgorithm::MyAlgorithm" alt="" coords="273,5,449,32"/>
+<area shape="rect" id="node3" href="$class_my_algorithm.html#ae560fba6ec895c1dc82f8a2bb26570a3" title="MyAlgorithm::evolution" alt="" coords="501,81,656,108"/>
+<area shape="rect" id="node5" href="$class_my_algorithm.html#aa2918cd51518fc517605759fb23f85db" title="MyAlgorithm::best_cost_run" alt="" coords="268,107,453,133"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="704,81,755,108"/>
 </map>
